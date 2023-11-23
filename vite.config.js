@@ -8,6 +8,7 @@ export default defineConfig({
       format: ['es'],
       name:'DuseWebComponent'
     },
+    // minify: false,
     rollupOptions: {
       // external: /^lit/
     }
