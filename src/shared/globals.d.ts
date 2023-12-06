@@ -9,3 +9,7 @@ declare module '*.scss' {
   const styles: CSSResult;
   export default styles;
 }
+
+declare module '*.css';
+declare module '*.css?inline';
+declare module '*.html'
