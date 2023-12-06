@@ -1,0 +1,8 @@
+@use 'sass:list';
+@use '../../tokens';
+
+@mixin theme($tokens) {
+  @each $token, $value in $tokens {
+    @debug "divider offset: #{$token} #{$value}";
+  }
+}

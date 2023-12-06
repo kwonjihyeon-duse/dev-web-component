@@ -4,7 +4,8 @@
   @return (
     'black': if($exclude-hardcoded-values, null, #000000),
     'white': if($exclude-hardcoded-values, null, #FFFFFF),
-
+    'naver': if($exclude-hardcoded-values, null, #1CCB69),
+    'kakao': if($exclude-hardcoded-values, null, #FFE200),
     'red50': if($exclude-hardcoded-values, null, #FEF2F2),
     'red100': if($exclude-hardcoded-values, null, #FDDEDE),
     'red200': if($exclude-hardcoded-values, null, #FCC5C5),

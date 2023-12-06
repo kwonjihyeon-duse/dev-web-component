@@ -1,0 +1,61 @@
+@use 'sass:map';
+
+@use './dwc-palette';
+
+$_default: (
+  'dwc-palette': dwc-palette.values(),
+);
+
+@function values($deps: $_default) {
+  @return (
+    'brand-primary-background': map.get($deps, 'dwc-palette', 'mintgreen50'),
+    'brand-primary-light-1': map.get($deps, 'dwc-palette', 'mintgreen100'),
+    'brand-primary-light-2': map.get($deps, 'dwc-palette', 'mintgreen200'),
+    'brand-primary-main': map.get($deps, 'dwc-palette', 'mintgreen500'),
+    'brand-primary-dark-1': map.get($deps, 'dwc-palette', 'mintgreen600'),
+    'brand-primary-dark-2': map.get($deps, 'dwc-palette', 'mintgreen700'),
+    'brand-secondary-background': map.get($deps, 'dwc-palette', 'bluegray50'),
+    'brand-secondary-light-1': map.get($deps, 'dwc-palette', 'bluegray100'),
+    'brand-secondary-light-2': map.get($deps, 'dwc-palette', 'bluegray200'),
+    'brand-secondary-light-3': map.get($deps, 'dwc-palette', 'bluegray300'),
+    'brand-secondary-main': map.get($deps, 'dwc-palette', 'bluegray600'),
+    'brand-secondary-dark': map.get($deps, 'dwc-palette', 'bluegray700'),
+
+    'text-primary': map.get($deps, 'dwc-palette', 'gray900'),
+    'text-secondary': map.get($deps, 'dwc-palette', 'gray700'),
+    'text-tertiary': map.get($deps, 'dwc-palette', 'gray500'),
+    'text-caption': map.get($deps, 'dwc-palette', 'gray400'),
+    'text-hint': map.get($deps, 'dwc-palette', 'gray300'),
+    'text-white': map.get($deps, 'dwc-palette', 'white'),
+    'text-link': map.get($deps, 'dwc-palette', 'blue500'),
+
+    'background-light-1': map.get($deps, 'dwc-palette', 'white'),
+    'background-light-2': map.get($deps, 'dwc-palette', 'gray50'),
+    'background-light-3': map.get($deps, 'dwc-palette', 'gray100'),
+    'background-dark-1': map.get($deps, 'dwc-palette', 'gray600'),
+    'background-dark-2': map.get($deps, 'dwc-palette', 'gray800'),
+
+    'divider-border-1': map.get($deps, 'dwc-palette', 'gray50'),
+    'divider-border-2': map.get($deps, 'dwc-palette', 'gray100'),
+    'divider-border-3': map.get($deps, 'dwc-palette', 'gray200'),
+    'divider-border-4': map.get($deps, 'dwc-palette', 'gray300'),
+
+    'icon-primary': map.get($deps, 'dwc-palette', 'gray900'),
+    'icon-secondary': map.get($deps, 'dwc-palette', 'gray700'),
+    'icon-tertiary': map.get($deps, 'dwc-palette', 'gray300'),
+    'icon-caption': map.get($deps, 'dwc-palette', 'gray200'),
+    
+    'other-naver': map.get($deps, 'dwc-palette', 'naver'),
+    'other-kakao': map.get($deps, 'dwc-palette', 'kakao'),
+    'other-facebook': map.get($deps, 'dwc-palette', 'blue600'),
+
+    'state-error': map.get($deps, 'dwc-palette', 'red500'),
+    'state-success': map.get($deps, 'dwc-palette', 'green500'),
+    'state-information': map.get($deps, 'dwc-palette', 'blue500'),
+    'warning-information': map.get($deps, 'dwc-palette', 'orange600'),
+    'state-error-container': map.get($deps, 'dwc-palette', 'red50'),
+    'state-success-container': map.get($deps, 'dwc-palette', 'green50'),
+    'state-information-container': map.get($deps, 'dwc-palette', 'blue50'),
+    'state-warning-container': map.get($deps, 'dwc-palette', 'orange50'),
+  )
+}
