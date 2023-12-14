@@ -1,0 +1,71 @@
+.button--text {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.48px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+.button--text:hover {
+  background: #f5f5f5;
+}
+
+.basic {
+  border-radius: 0.25rem;
+}
+
+.solid {
+  border-radius: 0rem;
+}
+
+.round {
+  border-radius: 45px;
+}
+
+.primary {
+  color: #1db177;
+}
+
+.secondary {
+  color: #535c68;
+}
+
+.gray {
+  color: #818181;
+}
+
+.primary:disabled {
+  color: #bbe8d6;
+}
+
+.secondary:disabled {
+  color: #ebf0f8;
+}
+
+.gray:disabled {
+  color: #d0d0d0;
+}
+
+.sm {
+  font-size: 12px;
+  padding: 6px;
+}
+
+.md {
+  font-size: 14px;
+  padding: 8px;
+}
+
+.lg {
+  font-size: 16px;
+  padding: 12px;
+}
+
+.xl {
+  font-size: 18px;
+  padding: 16px;
+}
