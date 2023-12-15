@@ -1,0 +1,90 @@
+@mixin direction($direction) {
+  position: absolute;
+  border-top: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #323234;
+  border-left: 6px solid transparent;
+
+  @if $direction == 'up' {
+    top: -12px;
+  } @else if $direction == 'down' {
+    bottom: -12px;
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.tooltip-wrapper {
+  position: relative;
+  min-width: 236px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  background-color: #323234; // 디자인 시스템 컬러 - #535C68
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  width: fit-content;
+  // @extends
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.3px;
+}
+
+.white {
+  padding: 10px 12px;
+  border: 1px solid #aaaaaa;
+  background-color: #fff;
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+  color: #818181;
+}
+
+.hideAnimation {
+  opacity: 0;
+  animation: slide-out 0.5s linear;
+}
+
+// .onOpen {
+//   animation: slide-in 0.5s linear;
+// }
+
+.clicked {
+  // 버튼 on, off
+  display: none;
+}
+
+.medium {
+  min-width: 236px;
+}
+
+.large {
+  min-width: 262px;
+  // @extends
+  font-size: 13px;
+}
+
+.up {
+  @include direction('up');
+}
+
+.down {
+  @include direction('down');
+}
