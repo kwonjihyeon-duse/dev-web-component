@@ -25,7 +25,6 @@ type Story = StoryObj<Typography>;
 
 export const P: Story = {
   args: {
-    tag: '',
     text: 'default P 태그, text-green-300 컬러입니다.',
     preset: 'text-green-600',
   },

@@ -17,11 +17,11 @@ import style from './tooltip.scss?inline';
  */
 @customElement('dwc-tooltip')
 export class TooltipElement extends TailwindElement(style) {
-  @property({ type: String }) direction = '';
-  @property({ type: String }) styled = '';
-  @property({ type: String }) standard = '';
-  @property({ type: Number }) range = 0;
-  @property({ type: String }) size = 'medium';
+  @property({ type: String }) direction?: 'up' | 'down';
+  @property({ type: String }) styled?: Partial<CSSStyleDeclaration>;
+  @property({ type: String }) standard?: 'right' | 'left' = 'left';
+  @property({ type: Number }) range?: number;
+  @property({ type: String }) size?: 'medium' | 'large' = 'medium';
   @property({ type: Number }) status = 0;
   // 1. boolean props 판단 불가 github - https://github.com/lit/lit-element/issues/819
   // 2. isOpen, status / status 선택하지 않은 이유
@@ -41,6 +41,7 @@ export class TooltipElement extends TailwindElement(style) {
   render() {
     const HIDE = -1;
     const SHOW = 0;
+
     if (this.status === HIDE) {
       this._actionId = 'clicked';
     } else if (this.status !== SHOW) {
@@ -61,7 +62,7 @@ export class TooltipElement extends TailwindElement(style) {
     >
       <span
         class="${ifDefined(this.direction)}"
-        style="${this.standard ? this.standard : 'left'}:${range};"
+        style="${this.standard}: ${range};"
       ></span>
       <slot name="contents"></slot>
     </div>`;

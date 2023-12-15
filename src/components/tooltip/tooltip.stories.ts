@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
-import { TooltipElement } from './tooltip';
+import type { TooltipElement } from './tooltip';
 
 import './tooltip';
 
@@ -16,7 +16,7 @@ const meta = {
     range=${args.range}
     size=${args.size}
   >
-    <div slot="contents">툴팁입니다.</div>
+    <div slot="contents" style="color: white">툴팁입니다.</div>
   </dwc-tooltip>`,
   argTypes: {
     direction: { control: '' },
@@ -43,7 +43,7 @@ export const Default: Story = {
   args: {
     direction: 'up',
     standard: 'left',
-    styled: 'color: white',
+    styled: { color: 'white' },
   },
 };
 

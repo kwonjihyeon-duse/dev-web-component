@@ -3,6 +3,8 @@ import { literal, html, unsafeStatic } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import TailwindElement from '../../shared/tailwind.element';
 
+type ITypo = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
+
 /**
  * Typography element.
  *
@@ -13,10 +15,10 @@ import TailwindElement from '../../shared/tailwind.element';
  */
 @customElement('dwc-typography')
 export class Typography extends TailwindElement('') {
-  @property({ type: String }) text = '';
-  @property({ type: String }) tag? = '';
-  @property({ type: String }) preset? = '';
-  @property({ type: String }) styled? = '';
+  @property() text: string = '';
+  @property() tag?: ITypo;
+  @property() preset?: string;
+  @property() styled?: Partial<CSSStyleDeclaration>;
 
   render() {
     const tag = this.tag ? unsafeStatic(this.tag) : literal`p`;
