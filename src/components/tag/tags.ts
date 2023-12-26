@@ -5,10 +5,10 @@ import style from './tags.scss?inline';
 import { html } from 'lit';
 
 /**
- * Typography element.
+ * Tag element.
  *
  * @text 내용 (필수값)
- * @preset 태그를 꾸며줄 css class
+ * @preset 태그를 꾸며줄 css class, default - text(아이콘 없는 상태)
  * @styled 태그를 꾸며줄 css style
  * @position 아이콘 방향 - left (default), right
  * @fill 아이콘 색상
@@ -18,9 +18,10 @@ import { html } from 'lit';
 @customElement('dwc-tags')
 export class Tags extends TailwindElement(style) {
   @property() text: string = '';
-  @property() preset?: string;
+  @property() preset?: string = 'text';
   @property() styled?: Partial<CSSStyleDeclaration>;
   @property() position?: 'left' | 'right' = 'left';
+  // 아래 icon 수정 로직은 컴포넌트 적용 이후 삭제 예정
   @property() fill?: string = '#fff';
   @property() width?: number = 24;
   @property() height?: number = 24;
