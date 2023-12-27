@@ -25,6 +25,9 @@
     "noImplicitReturns": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@/*": ["./src/*"],
+    }
   },
   "include": ["src/**/*.ts", "types/*.d.ts"],
 	"exclude": ["src/**/*.stories.ts"],

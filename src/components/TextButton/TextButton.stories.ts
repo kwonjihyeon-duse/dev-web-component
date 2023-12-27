@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/web-components';
 import type { ButtonProps } from '../Button/Button';
 import './TextButton';
 import { html } from 'lit';
-import '../Icons/PlusIcon';
 
 const Template = (args: ButtonProps) => html`
   <text-button

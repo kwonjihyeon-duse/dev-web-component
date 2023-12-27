@@ -1,6 +1,6 @@
 import { customElement } from 'lit/decorators.js';
 import { html, unsafeCSS } from 'lit';
-import { Button } from '../Button/Button';
+import { Button } from "../button/button";
 import style from './outlineButton.css?inline';
 
 @customElement('outline-button')
