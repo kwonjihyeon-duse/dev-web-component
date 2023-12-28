@@ -1,31 +1,27 @@
-import { IconProps, SIZE } from './Icon';
-import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import type { Meta, StoryObj } from '@storybook/web-components';
+
+import  { IconProps, SIZE } from './Icon';
 import IconPaths from "./IconPaths";
+import IconMap from "./svgs";
+import textColors from '../../foundations/colors';
 
 // More on how to set up stories at: https://storybook.js.org/doㄹcs/web-components/writing-stories/introduction
-const Template = (args: IconProps, { loaded: { Icon } }) => {
-
-  console.log("args", args)
-  console.log("args", Icon.default)
-  return html`
-  <div style='color:red;'>
+const Template = (args: IconProps, { loaded: { Icon } }) => (
+  html`
     <dwc-icon
       number-of-size=${args.numberOfSize}
       view-box=${args.viewBox}
       name=${args.name}
       size=${args.size}
     ></dwc-icon>
-    </div>
-`;
-}
-
-console.log("IconPaths", IconPaths)
+`
+);
 
 const meta = {
-  title: 'Example/Icon',
+  title: 'Components/Icon',
   tags: ['autodocs'],
-  // component: 'dwc-icon',
+  component: 'dwc-icon',
   loaders: [async () => ({ Icon: await import('./Icon') })], // svg 비동기처리
   render: Template,
   argTypes: {
@@ -36,17 +32,21 @@ const meta = {
     },
     name: {
       control: { type: 'select' },
-      options: ['arrow-right', 'arrow-down', 'arrow-exchange', 'arrow-left', 'arrow-repeat'],
-      defaultValue: 'arrow-right'
+      options: Object.keys(IconMap),
     },
     size:{ 
       if: { arg: 'numberOfSize', eq: 0 },
       control: { type: 'select' },
       options: Object.values(SIZE),
      },
+     color: {
+      control: { type: 'select' },
+      options: textColors,
+     }
   },
   args: {
     viewBox: '0 0 24 24',
+    name: 'ArrowRight'
   },
 } satisfies Meta<IconProps>;
 
@@ -54,13 +54,40 @@ export default meta;
 
 type Story = StoryObj<IconProps>;
 
-// More on writing stories with args: https://storybook.js.org/docs/web-components/writing-stories/args
-export const Primary: Story = {
+const IconTemplate = (args: IconProps, { loaded: { Icon } }) => {
+  return html`
+    <div class=${args.color}>
+      <dwc-icon name=${args.name || 'ArrowRight'} number-of-size=${args.numberOfSize}></dwc-icon>
+    </div>
+  `
+};
+export const Icon = {
+  render: IconTemplate,
+  loaders: [async () => ({ Icon: await import('./Icon') })], // svg 비동기처리
   args: {
     numberOfSize: 24,
-    name: 'arrow-right',
-    // color: 'primary'
-  },
-  
+    name: 'ArrowRight',
+  }
+}
+
+// More on writing stories with args: https://storybook.js.org/docs/web-components/writing-stories/args
+const IconsTemplate = (args: IconProps, { loaded: { Icon } }) => {
+  return html`
+    <div style="display:flex">
+      ${
+        Object.keys(IconMap).map(key => {
+          return html`
+            <dwc-icon name=${key} number-of-size=${args.numberOfSize}></dwc-icon>
+          `;
+        })
+      }
+    </div>
+  `
 };
+export const Icons = {
+  render: IconsTemplate,
+  args: {
+    numberOfSize: 24,
+  }
+}
 
