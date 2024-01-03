@@ -1,0 +1,39 @@
+.label-wrapper {
+  min-width: 40px;
+  width: fit-content;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+// tailwind 컬러 설정 후 변경 예정
+.primary {
+  background-color: #F4FBF8;
+  color: #1DB177;
+}
+
+.secondary {
+  background-color: #ECF0F7;
+  color: #535C68;
+}
+
+.tertiary {
+  background-color: #F4F4F5;
+  color: #898990;
+}
+
+.left {
+  flex-direction: row;
+}
+
+.right {
+  flex-direction: row-reverse;
+}
+
+.default {
+  svg {
+    display: none;
+  }
+}

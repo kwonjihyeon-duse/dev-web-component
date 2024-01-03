@@ -16,13 +16,13 @@ import style from './tooltip.scss?inline';
  * @contents slot 이름
  */
 @customElement('dwc-tooltip')
-export class TooltipElement extends TailwindElement(style) {
-  @property({ type: String }) color?: 'white' | 'default';
-  @property({ type: String }) direction: 'up' | 'down' = 'up';
-  @property({ type: String }) styled?: Partial<CSSStyleDeclaration>;
-  @property({ type: String }) standard?: 'right' | 'left' = 'left';
-  @property({ type: Number }) range?: number;
-  @property({ type: Number }) status = 0;
+export class Tooltip extends TailwindElement(style) {
+  @property() color?: 'white' | 'default';
+  @property() direction: 'up' | 'down' = 'up';
+  @property() styled?: Partial<CSSStyleDeclaration>;
+  @property() standard?: 'right' | 'left' = 'left';
+  @property() range?: number;
+  @property() status = 0;
   // 1. boolean props 판단 불가 github - https://github.com/lit/lit-element/issues/819
   // 2. isOpen, status / status 선택하지 않은 이유
   //    - 1번과 동일한 사유, props가 true로 판단되는 상황에서 두개의 Props 판단하려면 어짜피 attribute 넣고 빼기가 필요.
@@ -70,6 +70,6 @@ export class TooltipElement extends TailwindElement(style) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'dwc-tooltip': TooltipElement;
+    'dwc-tooltip': Tooltip;
   }
 }

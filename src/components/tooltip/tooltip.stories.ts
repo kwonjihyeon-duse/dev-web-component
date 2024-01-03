@@ -1,15 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
-import type { TooltipElement } from './tooltip';
+import type { Tooltip } from './tooltip';
 
 import './tooltip';
 
-// More on how to set up stories at: https://storybook.js.org/docs/web-components/writing-stories/introduction
 const meta = {
   title: 'Tooltip/Default',
   tags: ['autodocs'],
   component: 'dwc-tooltip',
-  render: (args: TooltipElement) => html`<dwc-tooltip
+  render: (args: Tooltip) => html`<dwc-tooltip
     direction=${args.direction}
     styled=${args.styled}
     standard=${args.standard}
@@ -37,10 +36,10 @@ const meta = {
     slot: {},
     styled: {},
   },
-} satisfies Meta<TooltipElement>;
+} satisfies Meta<Tooltip>;
 export default meta;
 
-type Story = StoryObj<TooltipElement>;
+type Story = StoryObj<Tooltip>;
 
 export const Default: Story = {
   args: {
