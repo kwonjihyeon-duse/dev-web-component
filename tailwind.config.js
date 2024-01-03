@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require('tailwindcss/colors');
-
+// const colors = require('tailwindcss/colors');
+import colors from 'tailwindcss/colors';
 const extendColors = {
   red: {
     50: "#FEF2F2",

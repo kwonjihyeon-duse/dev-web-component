@@ -1,8 +1,6 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import styles from './avatar.css?inline';
-import '../Icons/UserIcon';
-import '../Icons/PlusIcon';
 
 export interface AvatarProps {
   link: string;

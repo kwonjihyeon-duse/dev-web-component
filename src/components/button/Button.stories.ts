@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import type { ButtonProps } from './Button';
 import './Button';
-import '../Icons/PlusIcon';
+// import '../Icons/PlusIcon';
 import { html } from 'lit';
 
 const Template = (args: ButtonProps) => html`

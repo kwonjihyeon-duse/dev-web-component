@@ -1,9 +1,10 @@
-import { LitElement, unsafeCSS, html } from 'lit'
+import { html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import litLogo from './assets/lit.svg'
-import viteLogo from '/vite.svg'
+// import viteLogo from '/vite.svg'
 
-import styles from './my-element.scss?inline';
+import style from './my-element.scss?inline';
+import TailwindElement from './shared/tailwind.element';
 /**
  * An example element.
  *
@@ -11,7 +12,7 @@ import styles from './my-element.scss?inline';
  * @csspart button - The button
  */
 @customElement('my-element')
-export class MyElement extends LitElement {
+export class MyElement extends TailwindElement(style) {
   /**
    * Copy for the read the docs hint.
    */
@@ -28,7 +29,6 @@ export class MyElement extends LitElement {
     return html`
       <div>
         <a href="https://vitejs.dev" target="_blank">
-          <img src=${viteLogo} class="logo" alt="Vite logo" />
         </a>
         <a href="https://lit.dev" target="_blank">
           <img src=${litLogo} class="logo lit" alt="Lit logo" />
@@ -36,7 +36,9 @@ export class MyElement extends LitElement {
       </div>
       <slot></slot>
       <div class="card">
-        <button @click=${this._onClick} part="button">
+        <button @click=${this._onClick} part="button"
+        class="bg-red-200 text-yellow-200 p-2 rounded-full text-2xl"
+        >
           count is ${this.count}
         </button>
       </div>
@@ -48,7 +50,7 @@ export class MyElement extends LitElement {
     this.count++
   }
 
-  static styles = unsafeCSS(styles);
+  // static styles = unsafeCSS(style);
 }
 
 declare global {
