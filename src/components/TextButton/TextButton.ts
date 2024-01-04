@@ -1,6 +1,6 @@
 import { customElement } from 'lit/decorators.js';
 import { html, unsafeCSS } from 'lit';
-import { Button } from '../button/button';
+import { Button } from '../Button/button';
 import style from './textButton.css?inline';
 
 @customElement('text-button')
