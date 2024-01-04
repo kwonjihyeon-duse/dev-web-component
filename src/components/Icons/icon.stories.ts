@@ -2,6 +2,7 @@ import { html } from 'lit';
 import type { Meta, StoryObj } from '@storybook/web-components';
 
 import  { IconProps, SIZE } from './Icon';
+
 import IconPaths from "./IconPaths";
 import IconMap from "./svgs";
 import textColors from '../../foundations/colors';
@@ -48,25 +49,26 @@ const meta = {
     viewBox: '0 0 24 24',
     name: 'ArrowRight'
   },
-} satisfies Meta<IconProps>;
+} satisfies Meta<Icon>;
 
 export default meta;
 
-type Story = StoryObj<IconProps>;
+type Story = StoryObj<Icon>;
 
-const IconTemplate = (args: IconProps, { loaded: { Icon } }) => {
+const IconTemplate = (args: Icon, { loaded: { Icon } }) => {
   return html`
     <div class=${args.color}>
-      <dwc-icon name=${args.name || 'ArrowRight'} number-of-size=${args.numberOfSize}></dwc-icon>
+      <dwc-icon name=${args.name || 'ArrowRight'} number-of-size=${args.numberOfSize} size=${args.size}></dwc-icon>
     </div>
   `
 };
-export const Icon = {
-  render: IconTemplate,
+export const Icon: Story = {
+  // render: IconTemplate,
   loaders: [async () => ({ Icon: await import('./Icon') })], // svg 비동기처리
   args: {
-    numberOfSize: 24,
+    numberOfSize: 0,
     name: 'ArrowRight',
+    size: 'mmm'
   }
 }
 

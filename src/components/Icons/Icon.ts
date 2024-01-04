@@ -8,7 +8,7 @@ import { until } from 'lit-html/directives/until.js';
 
 import IconPaths from "./IconPaths";
 import IconMap from "./svgs";
-import colors from "../../foundations/colors";
+
 export const SIZE = {
   XXS: '2xs',
   XS: 'xs',
@@ -23,7 +23,7 @@ export type SIZE = typeof SIZE[keyof typeof SIZE];
 
 export interface IconProps {
   numberOfSize?: number;
-  size?: SIZE;
+  size: SIZE;
   viewBox?: string;
   name: keyof typeof IconPaths;
 }
@@ -36,8 +36,8 @@ export default class Icon extends TailwindElement(style) {
   })
   numberOfSize?:number;
 
-  @property({ type: String }) 
-  size?:SIZE;
+  @property({ type: SIZE }) 
+  size:SIZE;
 
   @property({ 
     type: String,

@@ -1,4 +1,5 @@
 import resolveConfig from 'tailwindcss/resolveConfig';
+// @ts-ignore
 import tailwindConfig from "../../tailwind.config.js";
 
 const fullConfig = resolveConfig(tailwindConfig)
@@ -7,7 +8,7 @@ const colorConfig = fullConfig.theme.colors;
 console.log("fullConfig", colorConfig);
 console.log("fullConfig", Object.keys(colorConfig));
 const colorCodes = Object.keys(colorConfig);
-let textColors = [];
+let textColors: string[] = [];
 colorCodes.map(colorCode => {
   console.log("fullConfig", Object.keys(colorConfig[colorCode]));
   Object.keys(colorConfig[colorCode]).map(colorCodeKey => {
