@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
-import type { ButtonProps } from '../Button/Button';
-import './OutlineButton';
+import type { Button } from '../button/button';
+import './outline-button';
 import { html } from 'lit';
 
-const Template = (args: ButtonProps) => html`
-  <outline-button
+const Template = (args: Button) => html`
+  <dwc-outline-button
     style="margin: 0 0.5rem"
     color=${args.color || 'primary'}
     backgroundColor=${args.backgroundColor || ''}
@@ -13,7 +13,7 @@ const Template = (args: ButtonProps) => html`
     type=${args.type || 'basic'}
     ?disabled=${args.disabled}
     @click=${args.onClick}
-  ></outline-button>
+  ></dwc-outline-button>
 `;
 
 const meta = {
@@ -37,11 +37,11 @@ const meta = {
       options: ['primary', 'secondary'],
     },
   },
-  component: 'outline-button',
-} satisfies Meta<ButtonProps>;
+  component: 'dwc-outline-button',
+} satisfies Meta<Button>;
 
 export default meta;
-type Story = StoryObj<ButtonProps>;
+type Story = StoryObj<Button>;
 
 export const Default: Story = {
   args: {
@@ -54,20 +54,20 @@ export const Default: Story = {
 export const OutlineButtonPrimary = {
   render: () => html`
     <div style="display:flex">
-      <outline-button
+      <dwc-outline-button
         style="margin-right:6px"
         label="click me!"
-      ></outline-button>
-      <outline-button
+      ></dwc-outline-button>
+      <dwc-outline-button
         style="margin-right:6px"
         label="click me!"
         type="solid"
-      ></outline-button>
-      <outline-button
+      ></dwc-outline-button>
+      <dwc-outline-button
         style="margin-right:6px"
         label="click me!"
         type="round"
-      ></outline-button>
+      ></dwc-outline-button>
     </div>
   `,
 };
@@ -75,37 +75,37 @@ export const OutlineButtonPrimary = {
 export const OutlineButtonSecondary = {
   render: () => html`
     <div style="display:flex">
-      <outline-button
+      <dwc-outline-button
         style="margin-right:6px"
         label="click me!"
         color="secondary"
-      ></outline-button>
-      <outline-button
+      ></dwc-outline-button>
+      <dwc-outline-button
         style="margin-right:6px"
         label="click me!"
         color="secondary"
         type="solid"
-      ></outline-button>
-      <outline-button
+      ></dwc-outline-button>
+      <dwc-outline-button
         style="margin-right:6px"
         label="click me!"
         color="secondary"
         type="round"
-      ></outline-button>
+      ></dwc-outline-button>
     </div>
   `,
 };
 
 export const IconButton = {
   render: () => html` <div style="display:flex">
-    <outline-button style="margin-right:6px" size="md">
+    <dwc-outline-button style="margin-right:6px" size="md">
       <plus-icon slot="leftIcon" color="#1DB177"></plus-icon>
-    </outline-button>
-    <outline-button style="margin-right:6px" size="md" label="Click Me!">
+    </dwc-outline-button>
+    <dwc-outline-button style="margin-right:6px" size="md" label="Click Me!">
       <plus-icon slot="leftIcon" color="#1DB177"></plus-icon>
-    </outline-button>
-    <outline-button style="margin-right:6px" size="md" label="Click Me!">
+    </dwc-outline-button>
+    <dwc-outline-button style="margin-right:6px" size="md" label="Click Me!">
       <plus-icon slot="rightIcon" color="#1DB177"></plus-icon>
-    </outline-button>
+    </dwc-outline-button>
   </div>`,
 };
