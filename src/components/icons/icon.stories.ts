@@ -21,7 +21,7 @@ const meta = {
   title: 'Components/Icon',
   tags: ['autodocs'],
   component: 'dwc-icon',
-  loaders: [async () => ({ Icon: await import('./Icon') })], // svg 비동기처리
+  loaders: [async () => ({ Icon: await import('./icon') })], // svg 비동기처리
   render: Template,
   argTypes: {
     numberOfSize: { action: 'nubmer' },
@@ -62,7 +62,7 @@ const IconTemplate = (args: IconProps, { loaded: { Icon } }) => {
 };
 export const Icon = {
   render: IconTemplate,
-  loaders: [async () => ({ Icon: await import('./Icon') })], // svg 비동기처리
+  loaders: [async () => ({ Icon: await import('./icon') })], // svg 비동기처리
   args: {
     numberOfSize: 0,
     name: 'ArrowRight',
