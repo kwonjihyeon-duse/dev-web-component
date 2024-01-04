@@ -1,28 +1,30 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
-import type { TooltipElement } from './tooltip';
+import type { Tooltip } from './tooltip';
 
 import './tooltip';
 
-// More on how to set up stories at: https://storybook.js.org/docs/web-components/writing-stories/introduction
 const meta = {
   title: 'Tooltip/Default',
   tags: ['autodocs'],
   component: 'dwc-tooltip',
-  render: (args: TooltipElement) => html`<dwc-tooltip
+  render: (args: Tooltip) => html`<dwc-tooltip
     direction=${args.direction}
     styled=${args.styled}
     standard=${args.standard}
     range=${args.range}
-    size=${args.size}
+    color=${args.color}
   >
-    <div slot="contents" style="color: white">툴팁입니다.</div>
+    <div slot="contents" style="color: ${args.color === 'white' ? '#555558' : "#fff"}">툴팁입니다.</div>
   </dwc-tooltip>`,
   argTypes: {
-    direction: { control: '' },
-    size: {
+    direction: {    
       control: { type: 'inline-radio' },
-      options: ['medium', 'large'],
+      options: ['up', 'down'],
+    },
+    color: {
+      control: { type: 'inline-radio' },
+      options: ['default', 'white'],
     },
     standard: {
       control: { type: 'inline-radio' },
@@ -34,13 +36,14 @@ const meta = {
     slot: {},
     styled: {},
   },
-} satisfies Meta<TooltipElement>;
+} satisfies Meta<Tooltip>;
 export default meta;
 
-type Story = StoryObj<TooltipElement>;
+type Story = StoryObj<Tooltip>;
 
 export const Default: Story = {
   args: {
+    color: "default",
     direction: 'up',
     standard: 'left',
     styled: { color: 'white' },
@@ -62,15 +65,11 @@ export const RightStandard50: Story = {
   },
 };
 
-export const LargeTooltip: Story = {
+export const WhiteBackgroundDownTooltip: Story = {
   args: {
     ...Default.args,
-    size: 'large',
-  },
-};
-
-export const Normal: Story = {
-  args: {
-    size: 'large',
+    direction: 'down',
+    range: 70,
+    color: 'white',
   },
 };

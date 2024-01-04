@@ -9,20 +9,20 @@ import style from './tooltip.scss?inline';
  *
  * @direction 위, 아래 화살표 방향을 표현 : up, down (없으면 화살표 나오지 않으며 default - 기본 툴팁)
  * @styled 툴팁 전체 style
+ * @color 툴팁 타입
  * @standard 화살표 위치를 지정 : left(defualt), right
  * @range 좌, 우로 몇 px 움직일 지 결정 : 숫자만 가능, defualt : 10px
- * @size 툴팁 크기
  * @status 툴팁 display 여부 - string (default - "true" 보임 / "false")
  * @contents slot 이름
  */
 @customElement('dwc-tooltip')
-export class TooltipElement extends TailwindElement(style) {
-  @property({ type: String }) direction?: 'up' | 'down';
-  @property({ type: String }) styled?: Partial<CSSStyleDeclaration>;
-  @property({ type: String }) standard?: 'right' | 'left' = 'left';
-  @property({ type: Number }) range?: number;
-  @property({ type: String }) size?: 'medium' | 'large' = 'medium';
-  @property({ type: Number }) status = 0;
+export class Tooltip extends TailwindElement(style) {
+  @property() color?: 'white' | 'default';
+  @property() direction: 'up' | 'down' = 'up';
+  @property() styled?: Partial<CSSStyleDeclaration>;
+  @property() standard?: 'right' | 'left' = 'left';
+  @property() range?: number;
+  @property() status = 0;
   // 1. boolean props 판단 불가 github - https://github.com/lit/lit-element/issues/819
   // 2. isOpen, status / status 선택하지 않은 이유
   //    - 1번과 동일한 사유, props가 true로 판단되는 상황에서 두개의 Props 판단하려면 어짜피 attribute 넣고 빼기가 필요.
@@ -54,15 +54,14 @@ export class TooltipElement extends TailwindElement(style) {
     return html`<div
       class=${[
         `tooltip-wrapper`,
-        this.size,
-        this.direction ? '' : 'white',
+        this.color,
         this._actionId,
       ].join(' ')}
       style="${this.styled}"
     >
       <span
-        class="${ifDefined(this.direction)}"
-        style="${this.standard}: ${range};"
+        class="${ifDefined(this.color ? this.direction : undefined)}"
+        style="${this.standard}: ${range}; ${this.color === 'white' ? "border-bottom: 6px solid #fff" : ""}"
       ></span>
       <slot name="contents"></slot>
     </div>`;
@@ -71,6 +70,6 @@ export class TooltipElement extends TailwindElement(style) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'dwc-tooltip': TooltipElement;
+    'dwc-tooltip': Tooltip;
   }
 }

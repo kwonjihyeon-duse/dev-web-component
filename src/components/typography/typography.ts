@@ -3,7 +3,7 @@ import { literal, html, unsafeStatic } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import TailwindElement from '../../shared/tailwind.element';
 
-type ITypo = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
+type ITypography = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
 
 /**
  * Typography element.
@@ -16,7 +16,7 @@ type ITypo = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
 @customElement('dwc-typography')
 export class Typography extends TailwindElement('') {
   @property() text: string = '';
-  @property() tag?: ITypo;
+  @property() tag?: ITypography;
   @property() preset?: string;
   @property() styled?: Partial<CSSStyleDeclaration>;
 
@@ -24,9 +24,11 @@ export class Typography extends TailwindElement('') {
     const tag = this.tag ? unsafeStatic(this.tag) : literal`p`;
     // ifDefined - 값이 없으면 속성을 추가하지 않음 (디폴트 속성 확인 후 추가)
 
-    return html`<${tag} class=${ifDefined(this.preset)} style=${ifDefined(
-      this.styled
-    )}>${this.text}</${tag}>`;
+    return html`
+      <${tag} class=${ifDefined(this.preset)} style=${ifDefined(this.styled)}>
+        ${this.text}
+      </${tag}>
+    `;
   }
 }
 
