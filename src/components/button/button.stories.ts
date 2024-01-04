@@ -1,11 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
-import type { ButtonProps } from './Button';
-import './Button';
-// import '../Icons/PlusIcon';
+import type { Button } from './button';
+import './button';
 import { html } from 'lit';
 
-const Template = (args: ButtonProps) => html`
-  <base-button
+const Template = (args: Button) => html`
+  <dwc-button
     style="margin: 0 0.5rem"
     color=${args.color || 'primary'}
     backgroundColor=${args.backgroundColor || ''}
@@ -14,7 +13,7 @@ const Template = (args: ButtonProps) => html`
     type=${args.type || 'basic'}
     ?disabled=${args.disabled}
     @click=${args.onClick}
-  ></base-button>
+  ></dwc-button>
 `;
 
 const meta = {
@@ -35,10 +34,10 @@ const meta = {
     },
   },
   component: 'my-button',
-} satisfies Meta<ButtonProps>;
+} satisfies Meta<Button>;
 
 export default meta;
-type Story = StoryObj<ButtonProps>;
+type Story = StoryObj<Button>;
 
 export const Default: Story = {
   args: {
@@ -50,119 +49,119 @@ export const Default: Story = {
 
 export const Primary = {
   render: () => html` <div style="display:flex">
-    <base-button
+    <dwc-button
       style="margin-right:6px"
       size="lg"
       label="Click Me!"
       color="primary"
-    ></base-button>
+    ></dwc-button>
 
-    <base-button
+    <dwc-button
       style="margin-right:6px"
       size="lg"
       label="Click Me!"
       color="primary"
       type="basic"
-    ></base-button>
+    ></dwc-button>
 
-    <base-button
+    <dwc-button
       style="margin-right:6px"
       size="lg"
       label="Click Me!"
       color="primary"
       type="round"
-    ></base-button>
+    ></dwc-button>
   </div>`,
 };
 
 export const Secondary = {
   render: () => html` <div style="display:flex">
-    <base-button
+    <dwc-button
       style="margin-right:6px"
       size="lg"
       label="Click Me!"
       color="secondary"
-    ></base-button>
+    ></dwc-button>
 
-    <base-button
+    <dwc-button
       style="margin-right:6px"
       size="lg"
       label="Click Me!"
       color="secondary"
       type="basic"
-    ></base-button>
+    ></dwc-button>
 
-    <base-button
+    <dwc-button
       style="margin-right:6px"
       size="lg"
       label="Click Me!"
       color="secondary"
       type="round"
-    ></base-button>
+    ></dwc-button>
   </div>`,
 };
 
 export const Gray = {
   render: () => html` <div style="display:flex">
-    <base-button
+    <dwc-button
       style="margin-right:6px"
       size="lg"
       label="Click Me!"
       color="gray"
-    ></base-button>
+    ></dwc-button>
 
-    <base-button
+    <dwc-button
       style="margin-right:6px"
       size="lg"
       label="Click Me!"
       color="gray"
       type="basic"
-    ></base-button>
+    ></dwc-button>
 
-    <base-button
+    <dwc-button
       style="margin-right:6px"
       size="lg"
       label="Click Me!"
       color="gray"
       type="round"
-    ></base-button>
+    ></dwc-button>
   </div>`,
 };
 
 export const ButtonSize = {
   render: () => html` <div style="display:flex">
-    <base-button
+    <dwc-button
       style="margin-right:6px"
       size="sm"
       label="Click Me!"
-    ></base-button>
+    ></dwc-button>
 
-    <base-button style="margin-right:6px" label="Click Me!"></base-button>
+    <dwc-button style="margin-right:6px" label="Click Me!"></dwc-button>
 
-    <base-button
+    <dwc-button
       style="margin-right:6px"
       size="lg"
       label="Click Me!"
-    ></base-button>
+    ></dwc-button>
 
-    <base-button
+    <dwc-button
       style="margin-right:6px"
       size="xl"
       label="Click Me!"
-    ></base-button>
+    ></dwc-button>
   </div>`,
 };
 
 export const IconButton = {
   render: () => html` <div style="display:flex">
-    <base-button style="margin-right:6px" size="md">
+    <dwc-button style="margin-right:6px" size="md">
       <plus-icon slot="leftIcon"></plus-icon>
-    </base-button>
-    <base-button style="margin-right:6px" size="md" label="Click Me!">
+    </dwc-button>
+    <dwc-button style="margin-right:6px" size="md" label="Click Me!">
       <plus-icon slot="leftIcon"></plus-icon>
-    </base-button>
-    <base-button style="margin-right:6px" size="md" label="Click Me!">
+    </dwc-button>
+    <dwc-button style="margin-right:6px" size="md" label="Click Me!">
       <plus-icon slot="rightIcon"></plus-icon>
-    </base-button>
+    </dwc-button>
   </div>`,
 };

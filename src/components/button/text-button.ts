@@ -1,9 +1,9 @@
 import { customElement } from 'lit/decorators.js';
 import { html, unsafeCSS } from 'lit';
-import { Button } from '../Button/button';
-import style from './textButton.css?inline';
+import { Button } from './button';
+import style from './text-button.scss?inline';
 
-@customElement('text-button')
+@customElement('dwc-text-button')
 export class TextButton extends Button {
   render() {
     return html`<button

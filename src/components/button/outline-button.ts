@@ -1,9 +1,9 @@
 import { customElement } from 'lit/decorators.js';
 import { html, unsafeCSS } from 'lit';
-import { Button } from "../Button/button";
-import style from './outlineButton.css?inline';
+import { Button } from './button';
+import style from './outline-button.scss?inline';
 
-@customElement('outline-button')
+@customElement('dwc-outline-button')
 export class OutlineButton extends Button {
   render() {
     return html`<button

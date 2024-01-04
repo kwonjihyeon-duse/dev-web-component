@@ -1,21 +1,9 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';
-import styles from './button.css?inline';
+import styles from './button.scss?inline';
 
-export interface ButtonProps {
-  color: 'primary' | 'secondary' | 'gray';
-  backgroundColor?: string;
-  size?: 'sm' | 'md' | 'lg' | 'xl';
-  type: 'basic' | 'solid' | 'round';
-  label: string;
-  disabled: boolean;
-  leftIcon?: Object;
-  rightIcon?: Object;
-  onClick?: () => void;
-}
-
-@customElement('base-button')
+@customElement('dwc-button')
 export class Button extends LitElement {
   @property({ type: String }) color?: 'primary' | 'secondary' | 'gray' =
     'primary';
@@ -45,6 +33,6 @@ export class Button extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'base-button': Button;
+    'dwc-button': Button;
   }
 }
