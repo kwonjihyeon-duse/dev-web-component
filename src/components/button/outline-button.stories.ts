@@ -18,7 +18,7 @@ const Template = (args: Button) => html`
 `;
 
 const meta = {
-  title: 'Components/OutlineButton',
+  title: 'Components/Buttons/OutlineButton',
   tags: ['autodocs'],
   render: Template,
   argTypes: {
@@ -52,17 +52,12 @@ export const Default: Story = {
   },
 };
 
-export const OutlineButtonPrimary = {
+export const Primary = {
   render: () => html`
     <div style="display:flex">
       <dwc-outline-button
         style="margin-right:6px"
         label="click me!"
-      ></dwc-outline-button>
-      <dwc-outline-button
-        style="margin-right:6px"
-        label="click me!"
-        type="solid"
       ></dwc-outline-button>
       <dwc-outline-button
         style="margin-right:6px"
@@ -73,7 +68,7 @@ export const OutlineButtonPrimary = {
   `,
 };
 
-export const OutlineButtonSecondary = {
+export const Secondary = {
   render: () => html`
     <div style="display:flex">
       <dwc-outline-button
@@ -85,16 +80,34 @@ export const OutlineButtonSecondary = {
         style="margin-right:6px"
         label="click me!"
         color="secondary"
-        type="solid"
-      ></dwc-outline-button>
-      <dwc-outline-button
-        style="margin-right:6px"
-        label="click me!"
-        color="secondary"
         type="round"
       ></dwc-outline-button>
     </div>
   `,
+};
+
+export const ButtonSize = {
+  render: () => html` <div style="display:flex">
+    <dwc-outline-button
+      style="margin-right:6px"
+      label="click me!"
+      size="sm"
+    ></dwc-outline-button>
+    <dwc-outline-button
+      style="margin-right:6px"
+      label="click me!"
+    ></dwc-outline-button>
+    <dwc-outline-button
+      style="margin-right:6px"
+      label="click me!"
+      size="lg"
+    ></dwc-outline-button>
+    <dwc-outline-button
+      style="margin-right:6px"
+      label="click me!"
+      size="xl"
+    ></dwc-outline-button>
+  </div>`,
 };
 
 export const IconButton = {
