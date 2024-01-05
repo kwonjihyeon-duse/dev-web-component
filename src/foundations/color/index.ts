@@ -131,6 +131,7 @@ const extendColors = {
     800: "#323234",
     900: "#0C0C0D",
   },
+  white: "#FFFFFF",
 };
 
 export const colorTheme = {
