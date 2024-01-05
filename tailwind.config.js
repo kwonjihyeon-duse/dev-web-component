@@ -242,7 +242,7 @@ export default {
   },
   plugins: [
     plugin(function ({ addBase, addComponents, addUtilities, theme }) {
-      addBase({ ...typography });
+      addComponents({ ...typography });
     }),
   ],
   safelist: [
