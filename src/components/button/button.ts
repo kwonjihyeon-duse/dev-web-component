@@ -10,7 +10,7 @@ export class Button extends TailwindElement(styles) {
     'primary';
   @property({ type: String }) backgroundColor?: string;
   @property({ type: String }) size?: 'sm' | 'md' | 'lg' | 'xl' = 'md';
-  @property({ type: String }) type?: 'basic' | 'solid' | 'round' = 'basic';
+  @property({ type: String }) type?: 'basic' | 'round' = 'basic';
   @property({ type: String }) label: string = '';
   @property({ type: Boolean }) disabled: boolean = false;
   @property({ attribute: false }) onClick?: () => void;

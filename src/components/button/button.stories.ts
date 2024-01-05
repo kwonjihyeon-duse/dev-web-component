@@ -18,7 +18,7 @@ const Template = (args: Button) => html`
 `;
 
 const meta = {
-  title: 'Components/Button',
+  title: 'Components/Buttons/Button',
   tags: ['autodocs'],
   render: Template,
   argTypes: {
@@ -28,6 +28,10 @@ const meta = {
     size: {
       control: { type: 'select' },
       options: ['sm', 'md', 'lg', 'xl'],
+    },
+    type: {
+      control: { type: 'select' },
+      options: ['basic', 'round'],
     },
     color: {
       control: { type: 'select' },
@@ -62,14 +66,6 @@ export const Primary = {
       size="lg"
       label="Click Me!"
       color="primary"
-      type="basic"
-    ></dwc-button>
-
-    <dwc-button
-      style="margin-right:6px"
-      size="lg"
-      label="Click Me!"
-      color="primary"
       type="round"
     ></dwc-button>
   </div>`,
@@ -89,14 +85,6 @@ export const Secondary = {
       size="lg"
       label="Click Me!"
       color="secondary"
-      type="basic"
-    ></dwc-button>
-
-    <dwc-button
-      style="margin-right:6px"
-      size="lg"
-      label="Click Me!"
-      color="secondary"
       type="round"
     ></dwc-button>
   </div>`,
@@ -109,14 +97,6 @@ export const Gray = {
       size="lg"
       label="Click Me!"
       color="gray"
-    ></dwc-button>
-
-    <dwc-button
-      style="margin-right:6px"
-      size="lg"
-      label="Click Me!"
-      color="gray"
-      type="basic"
     ></dwc-button>
 
     <dwc-button

@@ -18,7 +18,7 @@ const Template = (args: Button) => html`
 `;
 
 const meta = {
-  title: 'Components/TextButton',
+  title: 'Components/Buttons/TextButton',
   tags: ['autodocs'],
   render: Template,
   argTypes: {
@@ -35,7 +35,7 @@ const meta = {
     },
     color: {
       control: { type: 'select' },
-      options: ['primary', 'secondary'],
+      options: ['primary', 'secondary', 'gray'],
     },
   },
   component: 'dwc-text-button',
@@ -62,11 +62,6 @@ export const Primary = {
       <dwc-text-button
         style="margin-right:6px"
         label="click me!"
-        type="solid"
-      ></dwc-text-button>
-      <dwc-text-button
-        style="margin-right:6px"
-        label="click me!"
         type="round"
       ></dwc-text-button>
     </div>
@@ -80,12 +75,6 @@ export const Secondary = {
         style="margin-right:6px"
         label="click me!"
         color="secondary"
-      ></dwc-text-button>
-      <dwc-text-button
-        style="margin-right:6px"
-        label="click me!"
-        color="secondary"
-        type="solid"
       ></dwc-text-button>
       <dwc-text-button
         style="margin-right:6px"
@@ -109,16 +98,34 @@ export const Gray = {
         style="margin-right:6px"
         label="click me!"
         color="gray"
-        type="solid"
-      ></dwc-text-button>
-      <dwc-text-button
-        style="margin-right:6px"
-        label="click me!"
-        color="gray"
         type="round"
       ></dwc-text-button>
     </div>
   `,
+};
+
+export const ButtonSize = {
+  render: () => html` <div style="display:flex">
+    <dwc-text-button
+      style="margin-right:6px"
+      label="click me!"
+      size="sm"
+    ></dwc-text-button>
+    <dwc-text-button
+      style="margin-right:6px"
+      label="click me!"
+    ></dwc-text-button>
+    <dwc-text-button
+      style="margin-right:6px"
+      label="click me!"
+      size="lg"
+    ></dwc-text-button>
+    <dwc-text-button
+      style="margin-right:6px"
+      label="click me!"
+      size="xl"
+    ></dwc-text-button>
+  </div>`,
 };
 
 export const IconButton = {
