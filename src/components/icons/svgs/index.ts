@@ -4,6 +4,7 @@ const IconMap =  {
     ArrowExchange: () => import(`./arrow-exchange.svg`),
     ArrowLeft: () => import(`./arrow-left.svg`),
     ArrowRepeat: () => import(`./arrow-repeat.svg`),
+    Camera:()=>import('./camera-fill.svg')
 }
 
 export default IconMap;

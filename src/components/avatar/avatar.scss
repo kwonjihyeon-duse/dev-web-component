@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   img {
     object-fit: cover;
@@ -12,23 +13,68 @@
     border-radius: 50%;
   }
 
-  &--sm {
+  .status-icon {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #1db177;
+    border-radius: 50%;
+  }
+
+  .camera-wrap {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &--xs {
     width: 40px;
     height: 40px;
+    .svg-icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .status-icon {
+      right: 2px;
+      top: 2px;
+    }
+  }
+
+  &--sm {
+    width: 48px;
+    height: 48px;
 
     .svg-icon {
       width: 20px;
       height: 20px;
     }
+
+    .status-icon {
+      right: 4px;
+      top: 4px;
+    }
   }
 
   &--md {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
 
     .svg-icon {
-      width: 24px;
-      height: 24px;
+      width: 23px;
+      height: 23px;
+    }
+
+    .status-icon {
+      right: 6px;
+      top: 6px;
     }
   }
 
@@ -40,6 +86,18 @@
       width: 24px;
       height: 24px;
     }
+
+    .status-icon {
+      right: 6px;
+      top: 6px;
+    }
+
+    .camera-wrap {
+      width: 24px;
+      height: 24px;
+      bottom: -1px;
+      right: -1px;
+    }
   }
 
   &--xlg {
@@ -49,6 +107,39 @@
     .svg-icon {
       width: 32px;
       height: 32px;
+    }
+
+    .status-icon {
+      width: 30px;
+      height: 30px;
+      right: 8px;
+      top: 8px;
+    }
+
+    .camera-wrap {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  &--2xlg {
+    width: 100px;
+    height: 100px;
+
+    .svg-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .status-icon {
+      right: 11px;
+      top: 11px;
+    }
+
+    .camera-wrap {
+      width: 32px;
+      height: 32px;
+      bottom: 3px;
+      right: 3px;
     }
   }
 }
