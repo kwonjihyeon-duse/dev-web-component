@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
+
 // const colors = require('tailwindcss/colors');
 import colors from 'tailwindcss/colors';
+import plugin from 'tailwindcss/plugin';
+
 const extendColors = {
   red: {
     50: "#FEF2F2",
@@ -237,7 +240,20 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addBase, addComponents, addUtilities, theme }) {
+      addBase({
+        '.heading-1': {
+          fontSize: '100px',
+          color: theme('colors.yellow.400')
+        },
+        'h2': {
+          fontSize: theme('fontSize.xl'),
+        },
+      })
+    })
+
+  ],
   safelist: [
     {
       pattern: /(red|orange|brown|yellow|green|mintgreen|blue|indigo|purple|bluegray|gray)-(50|100|200|300|400|500|600|700|800|900)/,
