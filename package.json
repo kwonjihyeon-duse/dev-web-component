@@ -1,6 +1,6 @@
 {
   "name": "duse-wepcomponents",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "두꺼비세상 웹 컴포넌트",
   "keywords": [
     "web components"
@@ -26,7 +26,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "create-tar": "npm version && tar -czvf packages/dwc-v$npm_package_version.tar.gz dist/"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.5.3",
@@ -42,6 +43,7 @@
     "sass": "^1.69.5",
     "storybook": "^7.6.6",
     "tailwindcss": "^3.3.6",
+    "tar": "^6.2.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.0"
   },
