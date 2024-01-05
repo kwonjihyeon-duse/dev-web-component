@@ -10,18 +10,15 @@
 
 // tailwind 컬러 설정 후 변경 예정
 .primary {
-  background-color: #F4FBF8;
-  color: #1DB177;
+  @apply text-mintgreen-500 bg-mintgreen-50;
 }
 
 .secondary {
-  background-color: #ECF0F7;
-  color: #535C68;
+  @apply text-bluegray-600 bg-bluegray-100;
 }
 
 .tertiary {
-  background-color: #F4F4F5;
-  color: #898990;
+  @apply text-gray-500 bg-gray-50;
 }
 
 .left {
