@@ -25,7 +25,7 @@ export class Button extends TailwindElement(styles) {
         ?disabled=${this.disabled}
         @click=${this.onClick}
       >
-        <slot name="leftIcon"></slot>${this.label}<slot name="rightIcon"></slot>
+        <slot></slot>${this.label}<slot name="rightIcon"></slot>
       </button>
     `;
   }

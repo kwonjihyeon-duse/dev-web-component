@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import type { Button } from '../button/button';
 import './outline-button';
+import '../icons/icon';
 import { html } from 'lit';
 
 const Template = (args: Button) => html`
@@ -99,13 +100,13 @@ export const OutlineButtonSecondary = {
 export const IconButton = {
   render: () => html` <div style="display:flex">
     <dwc-outline-button style="margin-right:6px" size="md">
-      <plus-icon slot="leftIcon" color="#1DB177"></plus-icon>
+      <dwc-icon size="24" name="ArrowRight"></dwc-icon>
     </dwc-outline-button>
     <dwc-outline-button style="margin-right:6px" size="md" label="Click Me!">
-      <plus-icon slot="leftIcon" color="#1DB177"></plus-icon>
+      <dwc-icon size="24" name="ArrowRight"></dwc-icon>
     </dwc-outline-button>
     <dwc-outline-button style="margin-right:6px" size="md" label="Click Me!">
-      <plus-icon slot="rightIcon" color="#1DB177"></plus-icon>
+      <dwc-icon slot="rightIcon" size="24" name="ArrowRight"></dwc-icon>
     </dwc-outline-button>
   </div>`,
 };

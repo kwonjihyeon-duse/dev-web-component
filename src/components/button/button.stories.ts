@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import type { Button } from './button';
 import './button';
+import '../icons/icon';
 import { html } from 'lit';
 
 const Template = (args: Button) => html`
@@ -155,13 +156,13 @@ export const ButtonSize = {
 export const IconButton = {
   render: () => html` <div style="display:flex">
     <dwc-button style="margin-right:6px" size="md">
-      <plus-icon slot="leftIcon"></plus-icon>
+      <dwc-icon size="24" name="ArrowRight"></dwc-icon>
     </dwc-button>
     <dwc-button style="margin-right:6px" size="md" label="Click Me!">
-      <plus-icon slot="leftIcon"></plus-icon>
+      <dwc-icon size="24" name="ArrowRight"></dwc-icon>
     </dwc-button>
     <dwc-button style="margin-right:6px" size="md" label="Click Me!">
-      <plus-icon slot="rightIcon"></plus-icon>
+      <dwc-icon slot="rightIcon" size="24" name="ArrowRight"></dwc-icon>
     </dwc-button>
   </div>`,
 };
