@@ -27,12 +27,14 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "create-tar": "npm version && tar -czvf packages/dwc-v$npm_package_version.tar.gz dist/"
+    "create-tar": "npm version && tar -czvf packages/dwc-v$npm_package_version.tar.gz dist/",
+    "chromatic": "npx chromatic --project-token=chpt_f1ebf08ead038fd --verbose"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.5.3",
     "@storybook/addon-links": "^7.5.3",
     "@storybook/blocks": "^7.5.3",
+    "@storybook/builder-vite": "^7.6.7",
     "@storybook/web-components": "^7.5.3",
     "@storybook/web-components-vite": "^7.5.3",
     "autoprefixer": "^10.4.16",
@@ -51,5 +53,8 @@
   "dependencies": {
     "@lit/react": "^1.0.2",
     "vite-plugin-svgo": "^1.4.0"
+  },
+  "overrides": {
+    "@babel/plugin-transform-block-scoping": "7.18.9"
   }
 }
