@@ -13,7 +13,7 @@ export class TextButton extends Button {
       ?disabled=${this.disabled}
       @click=${this.onClick}
     >
-      <slot name="leftIcon"></slot>${this.label}<slot name="rightIcon"></slot>
+      <slot></slot>${this.label}<slot name="rightIcon"></slot>
     </button>`;
   }
 
