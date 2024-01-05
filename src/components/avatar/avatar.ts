@@ -1,9 +1,10 @@
-import { LitElement, html, unsafeCSS } from 'lit';
+import { html, unsafeCSS } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import styles from './avatar.scss?inline';
+import TailwindElement from '@/shared/tailwind.element';
 
 @customElement('dwc-avatar')
-export class Avatar extends LitElement {
+export class Avatar extends TailwindElement(styles) {
   @property({ type: String }) link = '';
   @property({ type: String }) size: 'sm' | 'md' | 'lg' | 'xlg' = 'md';
 
@@ -12,6 +13,7 @@ export class Avatar extends LitElement {
   }
 
   profile = (link: string) => html`<img src=${link} />`;
+
   default = html` <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 32 32"
@@ -28,7 +30,7 @@ export class Avatar extends LitElement {
 
   render() {
     return html`
-      <div class="storybook-avatar ${this.size}">
+      <div class="avatar avatar--${this.size}">
         ${this.link !== '' ? this.profile(this.link) : this.default}
       </div>
     `;

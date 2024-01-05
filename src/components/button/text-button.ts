@@ -6,9 +6,10 @@ import style from './text-button.scss?inline';
 @customElement('dwc-text-button')
 export class TextButton extends Button {
   render() {
+    const buttonStyle = `button--text button--${this.size} button--${this.type} button--${this.color}`;
     return html`<button
       type="button"
-      class=${`button--text ${this.size} ${this.type} ${this.color} `}
+      class=${buttonStyle}
       ?disabled=${this.disabled}
       @click=${this.onClick}
     >
@@ -17,4 +18,10 @@ export class TextButton extends Button {
   }
 
   static styles = unsafeCSS(style);
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'dwc-text-button': TextButton;
+  }
 }

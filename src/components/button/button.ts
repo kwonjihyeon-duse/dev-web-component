@@ -1,10 +1,11 @@
-import { LitElement, html, unsafeCSS } from 'lit';
+import { html, unsafeCSS } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import styles from './button.scss?inline';
+import TailwindElement from '@/shared/tailwind.element';
 
 @customElement('dwc-button')
-export class Button extends LitElement {
+export class Button extends TailwindElement(styles) {
   @property({ type: String }) color?: 'primary' | 'secondary' | 'gray' =
     'primary';
   @property({ type: String }) backgroundColor?: string;
@@ -15,10 +16,11 @@ export class Button extends LitElement {
   @property({ attribute: false }) onClick?: () => void;
 
   render() {
+    const buttonClass = `button button--${this.size} button--${this.color} button--${this.type}`;
     return html`
       <button
         type="button"
-        class=${`button button--${this.size} button--${this.color} button-${this.type}`}
+        class=${buttonClass}
         style=${styleMap({ backgroundColor: this.backgroundColor })}
         ?disabled=${this.disabled}
         @click=${this.onClick}

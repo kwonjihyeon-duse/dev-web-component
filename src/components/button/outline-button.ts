@@ -1,14 +1,15 @@
 import { customElement } from 'lit/decorators.js';
 import { html, unsafeCSS } from 'lit';
-import { Button } from './button';
 import style from './outline-button.scss?inline';
+import { Button } from './button';
 
 @customElement('dwc-outline-button')
 export class OutlineButton extends Button {
   render() {
+    const buttonClass = `button--outline button--${this.size} button--${this.type} button--${this.color}`;
     return html`<button
       type="button"
-      class=${`button--outline ${this.size} ${this.type} ${this.color} `}
+      class=${buttonClass}
       ?disabled=${this.disabled}
       @click=${this.onClick}
     >
@@ -17,4 +18,10 @@ export class OutlineButton extends Button {
   }
 
   static styles = unsafeCSS(style);
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'dwc-outline-button': OutlineButton;
+  }
 }
