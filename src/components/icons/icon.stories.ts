@@ -1,12 +1,12 @@
 import { html } from 'lit';
 import type { Meta, StoryObj } from '@storybook/web-components';
 
-import  { IconProps, SIZE } from './icon';
-import IconMap from "./svgs";
+import { IconProps, SIZE } from './icon';
+import IconMap from './svgs';
 import textColors from '../../foundations/colors';
 
 // More on how to set up stories at: https://storybook.js.org/doㄹcs/web-components/writing-stories/introduction
-const Template = (args: IconProps, { loaded: { Icon } }) => (
+const Template = (args: IconProps, { loaded: { Icon } }) =>
   html`
     <dwc-icon
       number-of-size=${args.numberOfSize}
@@ -14,8 +14,7 @@ const Template = (args: IconProps, { loaded: { Icon } }) => (
       name=${args.name}
       size=${args.size}
     ></dwc-icon>
-`
-);
+  `;
 
 const meta = {
   title: 'Components/Icon',
@@ -33,19 +32,19 @@ const meta = {
       control: { type: 'select' },
       options: Object.keys(IconMap),
     },
-    size:{ 
+    size: {
       if: { arg: 'numberOfSize', eq: 0 },
       control: { type: 'select' },
       options: Object.values(SIZE),
-     },
-     color: {
+    },
+    color: {
       control: { type: 'select' },
       options: textColors,
-     }
+    },
   },
   args: {
     viewBox: '0 0 24 24',
-    name: 'ArrowRight'
+    name: 'ArrowRight',
   },
 } satisfies Meta<IconProps>;
 
@@ -56,9 +55,13 @@ type Story = StoryObj<IconProps>;
 const IconTemplate = (args: IconProps, { loaded: { Icon } }) => {
   return html`
     <div class=${args.color}>
-      <dwc-icon name=${args.name || 'ArrowRight'} number-of-size=${args.numberOfSize} size=${args.size}></dwc-icon>
+      <dwc-icon
+        name=${args.name || 'ArrowRight'}
+        number-of-size=${args.numberOfSize}
+        size=${args.size}
+      ></dwc-icon>
     </div>
-  `
+  `;
 };
 export const Icon = {
   render: IconTemplate,
@@ -66,28 +69,25 @@ export const Icon = {
   args: {
     numberOfSize: 0,
     name: 'ArrowRight',
-    size: 'mmm'
-  }
-}
+    size: 'mmm',
+  },
+};
 
 // More on writing stories with args: https://storybook.js.org/docs/web-components/writing-stories/args
 const IconsTemplate = (args: IconProps, { loaded: { Icon } }) => {
   return html`
-    <div style="display:flex" class="heading-1">
-      ${
-        Object.keys(IconMap).map(key => {
-          return html`
-            <dwc-icon name=${key} number-of-size=${args.numberOfSize}></dwc-icon>
-          `;
-        })
-      }
+    <div style="display:flex">
+      ${Object.keys(IconMap).map((key) => {
+        return html`
+          <dwc-icon name=${key} number-of-size=${args.numberOfSize}></dwc-icon>
+        `;
+      })}
     </div>
-  `
+  `;
 };
 export const Icons = {
   render: IconsTemplate,
   args: {
     numberOfSize: 24,
-  }
-}
-
+  },
+};
