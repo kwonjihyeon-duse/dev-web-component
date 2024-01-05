@@ -1,9 +1,9 @@
-import { html } from 'lit';
-import type { Meta, StoryObj } from '@storybook/web-components';
+import { html } from "lit";
+import type { Meta, StoryObj } from "@storybook/web-components";
 
-import { IconProps, SIZE } from './icon';
-import IconMap from './svgs';
-import textColors from '../../foundations/colors';
+import { IconProps, SIZE } from "./icon";
+import IconMap from "./svgs";
+import textColors from "../../foundations/colors";
 
 // More on how to set up stories at: https://storybook.js.org/doㄹcs/web-components/writing-stories/introduction
 const Template = (args: IconProps, { loaded: { Icon } }) =>
@@ -17,34 +17,34 @@ const Template = (args: IconProps, { loaded: { Icon } }) =>
   `;
 
 const meta = {
-  title: 'Components/Icon',
-  tags: ['autodocs'],
-  component: 'dwc-icon',
-  loaders: [async () => ({ Icon: await import('./icon') })], // svg 비동기처리
+  title: "Components/Icon",
+  tags: ["autodocs"],
+  component: "dwc-icon",
+  loaders: [async () => ({ Icon: await import("./icon") })], // svg 비동기처리
   render: Template,
   argTypes: {
-    numberOfSize: { action: 'nubmer' },
+    numberOfSize: { action: "nubmer" },
     viewBox: {
-      control: 'text',
-      description: 'min-x min-y width height <br/> default: 0 0 24 24',
+      control: "text",
+      description: "min-x min-y width height <br/> default: 0 0 24 24",
     },
     name: {
-      control: { type: 'select' },
+      control: { type: "select" },
       options: Object.keys(IconMap),
     },
     size: {
-      if: { arg: 'numberOfSize', eq: 0 },
-      control: { type: 'select' },
+      if: { arg: "numberOfSize", eq: 0 },
+      control: { type: "select" },
       options: Object.values(SIZE),
     },
     color: {
-      control: { type: 'select' },
+      control: { type: "select" },
       options: textColors,
     },
   },
   args: {
-    viewBox: '0 0 24 24',
-    name: 'ArrowRight',
+    viewBox: "0 0 24 24",
+    name: "ArrowRight",
   },
 } satisfies Meta<IconProps>;
 
@@ -56,7 +56,7 @@ const IconTemplate = (args: IconProps, { loaded: { Icon } }) => {
   return html`
     <div class=${args.color}>
       <dwc-icon
-        name=${args.name || 'ArrowRight'}
+        name=${args.name || "ArrowRight"}
         number-of-size=${args.numberOfSize}
         size=${args.size}
       ></dwc-icon>
@@ -65,11 +65,11 @@ const IconTemplate = (args: IconProps, { loaded: { Icon } }) => {
 };
 export const Icon = {
   render: IconTemplate,
-  loaders: [async () => ({ Icon: await import('./icon') })], // svg 비동기처리
+  loaders: [async () => ({ Icon: await import("./icon") })], // svg 비동기처리
   args: {
     numberOfSize: 0,
-    name: 'ArrowRight',
-    size: 'mmm',
+    name: "ArrowRight",
+    size: "mmm",
   },
 };
 

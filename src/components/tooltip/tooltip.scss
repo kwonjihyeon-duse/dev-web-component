@@ -5,9 +5,9 @@
   border-bottom: 6px solid #232328;
   border-left: 6px solid transparent;
 
-  @if $direction == 'up' {
+  @if $direction == "up" {
     top: -12px;
-  } @else if $direction == 'down' {
+  } @else if $direction == "down" {
     bottom: -12px;
     transform: rotate(180deg);
   }
@@ -69,9 +69,9 @@
 }
 
 .up {
-  @include direction('up');
+  @include direction("up");
 }
 
 .down {
-  @include direction('down');
+  @include direction("down");
 }

@@ -25,7 +25,7 @@ function bodyBase(fontSize: string, lineHeight: string) {
   };
 }
 
-export const typography = {
+export const typographyTheme = {
   '.heading-1': { ...headingBase('40px', '60px') },
   '.heading-2': { ...headingBase('34px', '50px') },
   '.heading-3': { ...headingBase('32px', '40px') },
