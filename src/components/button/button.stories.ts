@@ -68,19 +68,6 @@ export const Primary = {
       color="primary"
       type="round"
     ></dwc-button>
-    <p class="heading-1">heading-1</p>
-    <p class="heading-2">heading-2</p>
-    <p class="heading-3">heading-3</p>
-    <p class="heading-4">heading-4</p>
-    <p class="heading-5">heading-5</p>
-    <p class="heading-6">heading-6</p>
-    <p class="heading-7">heading-7</p>
-    <p class="title-medium-1">heading-1</p>
-    <p class="title-medium-2">heading-2</p>
-    <p class="title-medium-5">heading-3</p>
-    <p class="title-medium-3">heading-4</p>
-    <p class="title-medium-4">heading-5</p>
-    <p class="title-medium-6">heading-6</p>
   </div>`,
 };
 
