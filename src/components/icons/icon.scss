@@ -1,4 +1,5 @@
-div {
-  color: black;
-  border: 1px solid black;
+svg {
+  // @apply text-red-500;
+  color: theme("colors.red.500");
+  border: 1px solid theme("colors.mintgreen.500");
 }
