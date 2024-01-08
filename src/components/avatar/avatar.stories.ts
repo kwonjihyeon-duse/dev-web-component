@@ -7,7 +7,12 @@ const meta = {
   title: 'Components/Avatar',
   tags: ['autodocs'],
   render: (args: Avatar) =>
-    html`<dwc-avatar link=${args.link} size=${args.size}></dwc-avatar>`,
+    html`<dwc-avatar
+      link=${args.link}
+      size=${args.size}
+      ?isActive=${args.isActive}
+      ?isCamera=${args.isCamera}
+    ></dwc-avatar>`,
   argTypes: {
     size: {
       control: {
@@ -31,10 +36,12 @@ export const Default: Story = {
 export const DefaultImage = {
   render: () => html`
     <div style="display:flex">
-      <dwc-avatar size="sm" style="margin-right:12px;"></dwc-avatar>
+      <dwc-avatar size="xs" isActive style="margin-right:12px;"></dwc-avatar>
+      <dwc-avatar size="sm" isActive style="margin-right:12px;"></dwc-avatar>
       <dwc-avatar size="md" style="margin-right:12px;"></dwc-avatar>
-      <dwc-avatar size="lg" style="margin-right:12px;"></dwc-avatar>
-      <dwc-avatar size="xlg" style="margin-right:12px;"></dwc-avatar>
+      <dwc-avatar size="lg" isCamera style="margin-right:12px;"></dwc-avatar>
+      <dwc-avatar size="xlg" isCamera style="margin-right:12px;"></dwc-avatar>
+      <dwc-avatar size="2xlg" isCamera style="margin-right:12px;"></dwc-avatar>
     </div>
   `,
 };
