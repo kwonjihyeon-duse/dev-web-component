@@ -73,7 +73,7 @@ export const Icon = {
 // More on writing stories with args: https://storybook.js.org/docs/web-components/writing-stories/args
 const IconsTemplate = (args: IconProps, { loaded: { Icon } }) => {
   return html`
-    <div style="display:flex" class="heading-1">
+    <div style="display:flex">
       ${
         Object.keys(IconMap).map(key => {
           return html`
