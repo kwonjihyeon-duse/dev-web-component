@@ -2,9 +2,9 @@ import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import style from './label.scss?inline';
 import { html, nothing, unsafeCSS } from 'lit';
-import { Icon } from '../icons/icon';
+import { Icon } from '../icon/icon';
 
-import '../icons/icon.ts';
+import '../icon/icon.ts';
 
 /**
  * Label element.
