@@ -1,11 +1,10 @@
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import TailwindElement from '../../shared/tailwind.element';
 import style from './label.scss?inline';
 import { html, nothing, unsafeCSS } from 'lit';
-import { Icon } from '../icons/Icon';
+import { Icon } from '../icons/icon';
 
-import '../icons/Icon.ts';
+import '../icons/icon.ts';
 
 /**
  * Label element.
