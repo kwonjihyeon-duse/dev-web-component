@@ -1,6 +1,5 @@
 import { customElement, property, state } from 'lit/decorators.js';
 import { html } from 'lit/static-html.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import TailwindElement from '../../shared/tailwind.element';
 import style from './tooltip.scss?inline';
 
@@ -17,7 +16,7 @@ import style from './tooltip.scss?inline';
  */
 @customElement('dwc-tooltip')
 export class Tooltip extends TailwindElement(style) {
-  @property() color?: 'white' | 'default';
+  @property() color?: 'white' | 'default' = 'default';
   @property() direction: 'up' | 'down' = 'up';
   @property() styled?: Partial<CSSStyleDeclaration>;
   @property() standard?: 'right' | 'left' = 'left';
@@ -52,16 +51,14 @@ export class Tooltip extends TailwindElement(style) {
       this.range && Number.isInteger(this.range) ? `${this.range}px` : '10px';
 
     return html`<div
-      class=${[
-        `tooltip-wrapper`,
-        this.color,
-        this._actionId,
-      ].join(' ')}
+      class=${[`tooltip-wrapper`, this.color, this._actionId].join(' ')}
       style="${this.styled}"
     >
       <span
-        class="${ifDefined(this.color ? this.direction : undefined)}"
-        style="${this.standard}: ${range}; ${this.color === 'white' ? "border-bottom: 6px solid #fff" : ""}"
+        class="${this.direction}"
+        style="${this.standard}: ${range}; ${this.color === 'white'
+          ? 'border-bottom: 6px solid #fff'
+          : ''}"
       ></span>
       <slot name="contents"></slot>
     </div>`;
