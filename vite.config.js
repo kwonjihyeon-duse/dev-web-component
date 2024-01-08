@@ -21,6 +21,22 @@ export default defineConfig({
     minify: false,
     rollupOptions: {
       // external: /^lit/
+      output: {
+        assetFileNames: (assetInfo) => {
+          let extType = assetInfo.name.split('.').at(1);
+          console.log("extType", extType)
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
+            extType = 'img';
+          }
+          return `assets/${extType}/[name]-[hash][extname]`;
+        },
+        chunkFileNames: (assetInfo) => {
+          let extType = assetInfo.name.split('.').at(1);
+          console.log("assetInfo", assetInfo)
+          return 'assets/js/[name]-[hash].js';
+        }
+        // entryFileNames: 'assets/js/[name]-[hash].js',
+      },
     }
   },
   plugins: [
