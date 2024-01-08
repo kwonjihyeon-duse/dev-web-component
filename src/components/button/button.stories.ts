@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import type { Button } from './button';
 import './button';
-import '../icons/icon';
+import '../icon/icon';
 import { html } from 'lit';
 
 const Template = (args: Button) => html`
