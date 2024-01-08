@@ -2,7 +2,7 @@ import { html, unsafeCSS } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import styles from './avatar.scss?inline';
 import TailwindElement from '@/shared/tailwind.element';
-import '../icons/icon';
+import '../icon/icon';
 
 @customElement('dwc-avatar')
 export class Avatar extends TailwindElement(styles) {
