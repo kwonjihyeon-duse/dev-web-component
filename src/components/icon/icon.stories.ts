@@ -70,12 +70,26 @@ export const Icon = {
   }
 }
 
-// More on writing stories with args: https://storybook.js.org/docs/web-components/writing-stories/args
+const users = ['User', 'UserFill', 'Gender', 'Roommate'];
+const arrows = ['ArrowExchangeHorizontal', 'ArrowExchangeVertical', 'ArrowDown', 'ArrowUp', 'ArrowRight', 'ArrowLeft', 'ShevronDown', 'ShevronUp', 'ShevronRight', 'ShevronLeft', 'ShevronDoubleRight', 'ShevronDoubleLeft', 'Repeat', 'Reset', 'ZoomIn', 'Download', 'Upload', 'Share', 'CaretDownFill', 'CaretDownFillSmall', 'ChangeMeasure', 'ChangeSqaremeter'];
 const IconsTemplate = (args: IconProps, { loaded: { Icon } }) => {
   return html`
-    <div style="display:flex">
+    <div>01. Users</div>
+    <div style="display:grid;grid-template-columns: repeat(20, 1fr);row-gap:10px;">
       ${
         Object.keys(IconMap).map(key => {
+          if(users.indexOf(key) < 0) return;
+          return html`
+            <dwc-icon name=${key} number-of-size=${args.numberOfSize}></dwc-icon>
+          `;
+        })
+      }
+    </div>
+    <div>02. Arrows</div>
+    <div style="display:grid;grid-template-columns: repeat(20, 1fr);row-gap:10px;">
+      ${
+        Object.keys(IconMap).map(key => {
+          if(arrows.indexOf(key) < 0) return;
           return html`
             <dwc-icon name=${key} number-of-size=${args.numberOfSize}></dwc-icon>
           `;
