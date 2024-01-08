@@ -24,10 +24,7 @@ export class Label extends Icon {
   render() {
     return this.text && this.name
       ? html`
-          <div
-            style=${ifDefined(this.styled)}
-            class=${['label-wrapper', this.position, this.preset].join(' ')}
-          >
+          <div style=${ifDefined(this.styled)} class=${['label-wrapper', this.position, this.preset].join(' ')}>
             <dwc-icon
               numberOfSize=${this.numberOfSize}
               size=${this.size}

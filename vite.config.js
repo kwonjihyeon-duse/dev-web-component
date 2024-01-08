@@ -16,7 +16,7 @@ export default defineConfig({
       entry: 'src/index.ts',
       format: ['es'],
       // fileName: (format) => `index.${format}.js`,
-      name:'DuseWebComponent'
+      name: 'DuseWebComponent',
     },
     minify: false,
     rollupOptions: {
@@ -24,7 +24,7 @@ export default defineConfig({
       output: {
         assetFileNames: (assetInfo) => {
           let extType = assetInfo.name.split('.').at(1);
-          console.log("extType", extType)
+          console.log('extType', extType);
           if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
             extType = 'img';
           }
@@ -32,12 +32,12 @@ export default defineConfig({
         },
         chunkFileNames: (assetInfo) => {
           let extType = assetInfo.name.split('.').at(1);
-          console.log("assetInfo", assetInfo)
+          console.log('assetInfo', assetInfo);
           return 'assets/js/[name]-[hash].js';
-        }
+        },
         // entryFileNames: 'assets/js/[name]-[hash].js',
       },
-    }
+    },
   },
   plugins: [
     svg({
@@ -54,6 +54,6 @@ export default defineConfig({
           },
         },
       ],
-    })
-  ]
+    }),
+  ],
 });

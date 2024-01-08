@@ -14,13 +14,7 @@
   padding: $padding;
 }
 
-@mixin button-style(
-  $color,
-  $background,
-  $hover-background,
-  $disabled-background,
-  $disabled-color: $color
-) {
+@mixin button-style($color, $background, $hover-background, $disabled-background, $disabled-color: $color) {
   color: $color;
   background: $background;
 

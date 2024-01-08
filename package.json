@@ -29,13 +29,13 @@
     "build-storybook": "storybook build",
     "create-tar": "npm version && tar -czvf packages/dwc-v$npm_package_version.tar.gz dist/",
     "prepare": "husky install",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "chromatic": "npx chromatic --project-token=chpt_f1ebf08ead038fd --verbose"
   },
   "lint-staged": {
     "*.{tsx,ts,jsx,js}": [
       "prettier --write"
     ]
-    "chromatic": "npx chromatic --project-token=chpt_f1ebf08ead038fd --verbose"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.5.3",

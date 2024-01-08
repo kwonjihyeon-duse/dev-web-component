@@ -3,6 +3,6 @@
 
 @mixin theme($tokens) {
   @each $token, $value in $tokens {
-    @debug "divider offset: #{$token} #{$value}";
+    @debug 'divider offset: #{$token} #{$value}';
   }
 }

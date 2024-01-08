@@ -1,1 +1,10 @@
-{"version":3,"sources":["../Icons/icon.scss","icon.css"],"names":[],"mappings":"AAAA;EACE,YAAA;EACA,uBAAA;ACCF","file":"icon.css"}
+{
+  "version": 3,
+  "sources": [
+    "../Icons/icon.scss",
+    "icon.css"
+  ],
+  "names": [],
+  "mappings": "AAAA;EACE,YAAA;EACA,uBAAA;ACCF",
+  "file": "icon.css"
+}

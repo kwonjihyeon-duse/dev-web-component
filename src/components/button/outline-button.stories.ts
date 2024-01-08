@@ -55,15 +55,8 @@ export const Default: Story = {
 export const Primary = {
   render: () => html`
     <div style="display:flex">
-      <dwc-outline-button
-        style="margin-right:6px"
-        label="click me!"
-      ></dwc-outline-button>
-      <dwc-outline-button
-        style="margin-right:6px"
-        label="click me!"
-        type="round"
-      ></dwc-outline-button>
+      <dwc-outline-button style="margin-right:6px" label="click me!"></dwc-outline-button>
+      <dwc-outline-button style="margin-right:6px" label="click me!" type="round"></dwc-outline-button>
     </div>
   `,
 };
@@ -71,11 +64,7 @@ export const Primary = {
 export const Secondary = {
   render: () => html`
     <div style="display:flex">
-      <dwc-outline-button
-        style="margin-right:6px"
-        label="click me!"
-        color="secondary"
-      ></dwc-outline-button>
+      <dwc-outline-button style="margin-right:6px" label="click me!" color="secondary"></dwc-outline-button>
       <dwc-outline-button
         style="margin-right:6px"
         label="click me!"
@@ -87,39 +76,26 @@ export const Secondary = {
 };
 
 export const ButtonSize = {
-  render: () => html` <div style="display:flex">
-    <dwc-outline-button
-      style="margin-right:6px"
-      label="click me!"
-      size="sm"
-    ></dwc-outline-button>
-    <dwc-outline-button
-      style="margin-right:6px"
-      label="click me!"
-    ></dwc-outline-button>
-    <dwc-outline-button
-      style="margin-right:6px"
-      label="click me!"
-      size="lg"
-    ></dwc-outline-button>
-    <dwc-outline-button
-      style="margin-right:6px"
-      label="click me!"
-      size="xl"
-    ></dwc-outline-button>
-  </div>`,
+  render: () =>
+    html` <div style="display:flex">
+      <dwc-outline-button style="margin-right:6px" label="click me!" size="sm"></dwc-outline-button>
+      <dwc-outline-button style="margin-right:6px" label="click me!"></dwc-outline-button>
+      <dwc-outline-button style="margin-right:6px" label="click me!" size="lg"></dwc-outline-button>
+      <dwc-outline-button style="margin-right:6px" label="click me!" size="xl"></dwc-outline-button>
+    </div>`,
 };
 
 export const IconButton = {
-  render: () => html` <div style="display:flex">
-    <dwc-outline-button style="margin-right:6px" size="md">
-      <dwc-icon size="24" name="ArrowRight"></dwc-icon>
-    </dwc-outline-button>
-    <dwc-outline-button style="margin-right:6px" size="md" label="Click Me!">
-      <dwc-icon size="24" name="ArrowRight"></dwc-icon>
-    </dwc-outline-button>
-    <dwc-outline-button style="margin-right:6px" size="md" label="Click Me!">
-      <dwc-icon slot="rightIcon" size="24" name="ArrowRight"></dwc-icon>
-    </dwc-outline-button>
-  </div>`,
+  render: () =>
+    html` <div style="display:flex">
+      <dwc-outline-button style="margin-right:6px" size="md">
+        <dwc-icon size="24" name="ArrowRight"></dwc-icon>
+      </dwc-outline-button>
+      <dwc-outline-button style="margin-right:6px" size="md" label="Click Me!">
+        <dwc-icon size="24" name="ArrowRight"></dwc-icon>
+      </dwc-outline-button>
+      <dwc-outline-button style="margin-right:6px" size="md" label="Click Me!">
+        <dwc-icon slot="rightIcon" size="24" name="ArrowRight"></dwc-icon>
+      </dwc-outline-button>
+    </div>`,
 };

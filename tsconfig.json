@@ -26,10 +26,10 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src/**/*.ts", "types/*.d.ts"],
-	"exclude": ["src/**/*.stories.ts"],
-	"references": [{ "path": "./tsconfig.node.json" }]
+  "exclude": ["src/**/*.stories.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

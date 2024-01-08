@@ -47,18 +47,12 @@ export class Tooltip extends TailwindElement(style) {
       this._hideAfterSeconds(this.status);
     }
 
-    const range =
-      this.range && Number.isInteger(this.range) ? `${this.range}px` : '10px';
+    const range = this.range && Number.isInteger(this.range) ? `${this.range}px` : '10px';
 
-    return html`<div
-      class=${[`tooltip-wrapper`, this.color, this._actionId].join(' ')}
-      style="${this.styled}"
-    >
+    return html`<div class=${[`tooltip-wrapper`, this.color, this._actionId].join(' ')} style="${this.styled}">
       <span
         class="${this.direction}"
-        style="${this.standard}: ${range}; ${this.color === 'white'
-          ? 'border-bottom: 6px solid #fff'
-          : ''}"
+        style="${this.standard}: ${range}; ${this.color === 'white' ? 'border-bottom: 6px solid #fff' : ''}"
       ></span>
       <slot name="contents"></slot>
     </div>`;

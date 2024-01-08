@@ -8,17 +8,18 @@ const meta = {
   title: 'Tooltip/Default',
   tags: ['autodocs'],
   component: 'dwc-tooltip',
-  render: (args: Tooltip) => html`<dwc-tooltip
-    direction=${args.direction}
-    styled=${args.styled}
-    standard=${args.standard}
-    range=${args.range}
-    color=${args.color}
-  >
-    <div slot="contents" style="color: ${args.color === 'white' ? '#555558' : "#fff"}">툴팁입니다.</div>
-  </dwc-tooltip>`,
+  render: (args: Tooltip) =>
+    html`<dwc-tooltip
+      direction=${args.direction}
+      styled=${args.styled}
+      standard=${args.standard}
+      range=${args.range}
+      color=${args.color}
+    >
+      <div slot="contents" style="color: ${args.color === 'white' ? '#555558' : '#fff'}">툴팁입니다.</div>
+    </dwc-tooltip>`,
   argTypes: {
-    direction: {    
+    direction: {
       control: { type: 'inline-radio' },
       options: ['up', 'down'],
     },
@@ -43,7 +44,7 @@ type Story = StoryObj<Tooltip>;
 
 export const Default: Story = {
   args: {
-    color: "default",
+    color: 'default',
     direction: 'up',
     standard: 'left',
     styled: { color: 'white' },

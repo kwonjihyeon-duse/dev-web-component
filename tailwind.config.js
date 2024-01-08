@@ -1,14 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 
-import plugin from "tailwindcss/plugin";
-import { typographyTheme, colorTheme } from "./src/foundations/index";
+import plugin from 'tailwindcss/plugin';
+import { typographyTheme, colorTheme } from './src/foundations/index';
 
 export default {
-  content: ["./src/**/*.{js,ts,html,css,scss}"],
+  content: ['./src/**/*.{js,ts,html,css,scss}'],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["SpoqaHanSansNeo"],
+        sans: ['SpoqaHanSansNeo'],
       },
       colors: {
         ...colorTheme,
@@ -47,12 +47,10 @@ export default {
       pattern: /(other)-(naver|kakao|facebook)/,
     },
     {
-      pattern:
-        /(state|state-container)-(error|success|info|information|warning)/,
+      pattern: /(state|state-container)-(error|success|info|information|warning)/,
     },
     {
-      pattern:
-        /(transparent)-(black-30|black-50|black-70|bluegray-90|bluegray-95|white-30|white-50|white-70)/,
+      pattern: /(transparent)-(black-30|black-50|black-70|bluegray-90|bluegray-95|white-30|white-50|white-70)/,
     },
   ],
 };

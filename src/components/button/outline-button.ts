@@ -7,12 +7,7 @@ import { Button } from './button';
 export class OutlineButton extends Button {
   render() {
     const buttonClass = `button button--outline button--${this.size} button--${this.type} button--outline--${this.color}`;
-    return html`<button
-      type="button"
-      class=${buttonClass}
-      ?disabled=${this.disabled}
-      @click=${this.onClick}
-    >
+    return html`<button type="button" class=${buttonClass} ?disabled=${this.disabled} @click=${this.onClick}>
       <slot></slot>${this.label}<slot name="rightIcon"></slot>
     </button>`;
   }

@@ -1,6 +1,6 @@
-import { LitElement, unsafeCSS } from "lit";
+import { LitElement, unsafeCSS } from 'lit';
 
-import style from "./tailwind.global.css?inline";
+import style from './tailwind.global.css?inline';
 // const style = require("./tailwind.global.css?inline");
 const tailwindElement = unsafeCSS(style);
 

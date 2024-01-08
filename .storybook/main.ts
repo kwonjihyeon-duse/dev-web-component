@@ -1,25 +1,25 @@
 import { mergeConfig } from 'vite';
 
 module.exports = {
-    stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-    addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
 
-    framework: {
-        name: "@storybook/web-components-vite",
-        options: {}
-    },
+  framework: {
+    name: '@storybook/web-components-vite',
+    options: {},
+  },
   async viteFinal(config) {
     // Merge custom configuration into the default config
     return mergeConfig(config, {
       // Add dependencies to pre-optimization
       optimizeDeps: {
         include: [...(config.optimizeDeps?.include ?? []), '@storybook/web-components'],
-        exclude: [...(config.optimizeDeps?.exclude ?? []), 'lit', 'lit-html']
+        exclude: [...(config.optimizeDeps?.exclude ?? []), 'lit', 'lit-html'],
       },
     });
   },
 
-    docs: {
-        autodocs: true
-    }
-}
+  docs: {
+    autodocs: true,
+  },
+};

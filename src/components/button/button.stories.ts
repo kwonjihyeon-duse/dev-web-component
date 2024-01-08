@@ -53,96 +53,56 @@ export const Default: Story = {
 };
 
 export const Primary = {
-  render: () => html` <div style="display:flex">
-    <dwc-button
-      style="margin-right:6px"
-      size="lg"
-      label="Click Me!"
-      color="primary"
-    ></dwc-button>
+  render: () =>
+    html` <div style="display:flex">
+      <dwc-button style="margin-right:6px" size="lg" label="Click Me!" color="primary"></dwc-button>
 
-    <dwc-button
-      style="margin-right:6px"
-      size="lg"
-      label="Click Me!"
-      color="primary"
-      type="round"
-    ></dwc-button>
-  </div>`,
+      <dwc-button style="margin-right:6px" size="lg" label="Click Me!" color="primary" type="round"></dwc-button>
+    </div>`,
 };
 
 export const Secondary = {
-  render: () => html` <div style="display:flex">
-    <dwc-button
-      style="margin-right:6px"
-      size="lg"
-      label="Click Me!"
-      color="secondary"
-    ></dwc-button>
+  render: () =>
+    html` <div style="display:flex">
+      <dwc-button style="margin-right:6px" size="lg" label="Click Me!" color="secondary"></dwc-button>
 
-    <dwc-button
-      style="margin-right:6px"
-      size="lg"
-      label="Click Me!"
-      color="secondary"
-      type="round"
-    ></dwc-button>
-  </div>`,
+      <dwc-button style="margin-right:6px" size="lg" label="Click Me!" color="secondary" type="round"></dwc-button>
+    </div>`,
 };
 
 export const Gray = {
-  render: () => html` <div style="display:flex">
-    <dwc-button
-      style="margin-right:6px"
-      size="lg"
-      label="Click Me!"
-      color="gray"
-    ></dwc-button>
+  render: () =>
+    html` <div style="display:flex">
+      <dwc-button style="margin-right:6px" size="lg" label="Click Me!" color="gray"></dwc-button>
 
-    <dwc-button
-      style="margin-right:6px"
-      size="lg"
-      label="Click Me!"
-      color="gray"
-      type="round"
-    ></dwc-button>
-  </div>`,
+      <dwc-button style="margin-right:6px" size="lg" label="Click Me!" color="gray" type="round"></dwc-button>
+    </div>`,
 };
 
 export const ButtonSize = {
-  render: () => html` <div style="display:flex">
-    <dwc-button
-      style="margin-right:6px"
-      size="sm"
-      label="Click Me!"
-    ></dwc-button>
+  render: () =>
+    html` <div style="display:flex">
+      <dwc-button style="margin-right:6px" size="sm" label="Click Me!"></dwc-button>
 
-    <dwc-button style="margin-right:6px" label="Click Me!"></dwc-button>
+      <dwc-button style="margin-right:6px" label="Click Me!"></dwc-button>
 
-    <dwc-button
-      style="margin-right:6px"
-      size="lg"
-      label="Click Me!"
-    ></dwc-button>
+      <dwc-button style="margin-right:6px" size="lg" label="Click Me!"></dwc-button>
 
-    <dwc-button
-      style="margin-right:6px"
-      size="xl"
-      label="Click Me!"
-    ></dwc-button>
-  </div>`,
+      <dwc-button style="margin-right:6px" size="xl" label="Click Me!"></dwc-button>
+    </div>`,
 };
 
 export const IconButton = {
-  render: () => html` <div style="display:flex">
-    <dwc-button style="margin-right:6px" size="md">
-      <dwc-icon size="24" name="ArrowRight"></dwc-icon>
-    </dwc-button>
-    <dwc-button style="margin-right:6px" size="md" label="Click Me!">
-      <dwc-icon size="24" name="ArrowRight"></dwc-icon>
-    </dwc-button>
-    <dwc-button style="margin-right:6px" size="md" label="Click Me!">
-      <dwc-icon slot="rightIcon" size="24" name="ArrowRight"></dwc-icon>
-    </dwc-button>
-  </div>`,
+  render: () =>
+    html` <div style="display:flex">
+      <dwc-button style="margin-right:6px" size="md">
+        <dwc-icon size="24" name="ArrowRight"></dwc-icon>
+      </dwc-button>
+      <dwc-button style="margin-right:6px" size="md" label="Click Me!">
+        <dwc-icon size="24" name="ArrowRight"></dwc-icon>
+      </dwc-button>
+      <dwc-button style="margin-right:6px" size="md" label="Click Me!">
+        <dwc-icon slot="rightIcon" size="24" name="ArrowRight"></dwc-icon>
+      </dwc-button>
+    </div>`,
 };

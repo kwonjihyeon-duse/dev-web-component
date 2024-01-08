@@ -7,8 +7,7 @@ import '../icons/icon';
 @customElement('dwc-avatar')
 export class Avatar extends TailwindElement(styles) {
   @property({ type: String }) link = '';
-  @property({ type: String }) size: 'xs' | 'sm' | 'md' | 'lg' | 'xlg' | '2xlg' =
-    'md';
+  @property({ type: String }) size: 'xs' | 'sm' | 'md' | 'lg' | 'xlg' | '2xlg' = 'md';
   @property({ type: Boolean }) isActive = false;
   @property({ type: Boolean }) isCamera = false;
   @property({ attribute: false }) onClickCamera?: () => void;
@@ -18,12 +17,7 @@ export class Avatar extends TailwindElement(styles) {
 
   profile = (link: string) => html`<img src=${link} />`;
 
-  default = html` <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 32 32"
-    fill="none"
-    class="svg-icon"
-  >
+  default = html` <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" class="svg-icon">
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -35,13 +29,7 @@ export class Avatar extends TailwindElement(styles) {
   activeIcon = html`<div class="status-icon"></div>`;
 
   cameraIcon = html`<div class="camera-wrap" @click=${this.onClickCamera}>
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M8.00004 10.7428C9.0637 10.7428 9.92596 9.85594 9.92596 8.76189C9.92596 7.66784 9.0637 6.78094 8.00004 6.78094C6.93638 6.78094 6.07411 7.66784 6.07411 8.76189C6.07411 9.85594 6.93638 10.7428 8.00004 10.7428Z"
         fill="#0C0C0D"
@@ -58,8 +46,7 @@ export class Avatar extends TailwindElement(styles) {
   render() {
     return html`
       <div class="avatar avatar--${this.size}">
-        ${this.link !== '' ? this.profile(this.link) : this.default}
-        ${this.isActive ? this.activeIcon : ''}
+        ${this.link !== '' ? this.profile(this.link) : this.default} ${this.isActive ? this.activeIcon : ''}
         ${this.isCamera ? this.cameraIcon : ''}
       </div>
     `;
