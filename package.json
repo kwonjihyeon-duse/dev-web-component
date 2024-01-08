@@ -35,16 +35,19 @@
     "*.{tsx,ts,jsx,js}": [
       "prettier --write"
     ]
+    "chromatic": "npx chromatic --project-token=chpt_f1ebf08ead038fd --verbose"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.5.3",
     "@storybook/addon-links": "^7.5.3",
     "@storybook/blocks": "^7.5.3",
+    "@storybook/builder-vite": "^7.6.7",
     "@storybook/web-components": "^7.5.3",
     "@storybook/web-components-vite": "^7.5.3",
     "autoprefixer": "^10.4.16",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
+    "chromatic": "^10.2.0",
     "lit": "^3.0.2",
     "postcss": "^8.4.32",
     "prettier": "^3.1.1",
@@ -60,5 +63,8 @@
   "dependencies": {
     "@lit/react": "^1.0.2",
     "vite-plugin-svgo": "^1.4.0"
+  },
+  "overrides": {
+    "@babel/plugin-transform-block-scoping": "7.18.9"
   }
 }
