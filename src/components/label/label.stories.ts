@@ -4,7 +4,7 @@ import type { Label } from './label';
 import './label';
 
 const meta = {
-  title: 'Label/Default',
+  title: 'Components/Label',
   tags: ['autodocs'],
   component: 'dwc-label',
   argTypes: {

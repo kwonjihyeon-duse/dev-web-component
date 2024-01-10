@@ -5,7 +5,7 @@ import type { Tooltip } from './tooltip';
 import './tooltip';
 
 const meta = {
-  title: 'Tooltip/Default',
+  title: 'Components/Tooltip',
   tags: ['autodocs'],
   component: 'dwc-tooltip',
   render: (args: Tooltip) =>
