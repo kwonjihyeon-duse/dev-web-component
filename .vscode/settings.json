@@ -1,7 +1,7 @@
 {
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": "always"
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

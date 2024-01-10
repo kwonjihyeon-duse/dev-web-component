@@ -3,7 +3,7 @@ import './typography';
 import { Typography } from './typography';
 
 const meta = {
-  title: 'Tyopgraphy/Default',
+  title: 'Components/Tyopgraphy',
   tags: ['autodocs'],
   component: 'dwc-typography',
   argTypes: {
