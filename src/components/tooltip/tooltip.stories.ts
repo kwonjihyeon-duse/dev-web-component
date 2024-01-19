@@ -15,7 +15,7 @@ const meta = {
       standard=${args.standard}
       range=${args.range}
       color=${args.color}
-      name=${args.name}
+      preset=${args.preset}
       status=${args.status}
     >
       <div slot="contents">툴팁입니다.</div>
@@ -51,7 +51,7 @@ type Story = StoryObj<Tooltip>;
 export const Default: Story = {
   args: {
     status: 0,
-    name: 'body-4 text-white',
+    preset: 'body-4 text-white',
     color: 'dark',
     direction: 'up',
     standard: 'left',
@@ -76,7 +76,7 @@ export const RightStandard30: Story = {
 export const WhiteBackgroundDown: Story = {
   args: {
     ...Default.args,
-    name: 'body-4 text-gray-700',
+    preset: 'body-4 text-gray-700',
     direction: 'down',
     color: 'light',
   },

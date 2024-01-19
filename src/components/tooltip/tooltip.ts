@@ -6,7 +6,7 @@ import style from './tooltip.scss?inline';
 /**
  * Tooltip element.
  *
- * @name 툴팁 전체 class
+ * @preset 툴팁 전체 class
  * @color 툴팁 타입 (black)
  * @direction 위, 아래 화살표 방향을 표현 : up, down (없으면 화살표 나오지 않으며 default - 기본 툴팁)
  * @styled 툴팁 전체 style
@@ -17,7 +17,7 @@ import style from './tooltip.scss?inline';
  */
 @customElement('dwc-tooltip')
 export class Tooltip extends TailwindElement(style) {
-  @property() name?: string;
+  @property() preset?: string;
   @property() color?: 'light' | 'dark' = 'dark';
   @property() direction: 'up' | 'down' = 'up';
   @property() styled?: Partial<CSSStyleDeclaration>;
@@ -53,7 +53,7 @@ export class Tooltip extends TailwindElement(style) {
 
     return html`<div
       style="${this.styled}"
-      class="${[`tooltip-wrapper`, this.color].join(' ')} ${this.name} ${this._actionId}"
+      class="${[`tooltip-wrapper`, this.color].join(' ')} ${this.preset} ${this._actionId}"
     >
       <span class="${this.direction}" style="${this.standard}: ${range};"></span>
       <slot name="contents"></slot>
