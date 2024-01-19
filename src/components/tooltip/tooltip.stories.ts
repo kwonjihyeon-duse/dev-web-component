@@ -15,8 +15,10 @@ const meta = {
       standard=${args.standard}
       range=${args.range}
       color=${args.color}
+      name=${args.name}
+      status=${args.status}
     >
-      <div slot="contents" style="color: ${args.color === 'white' ? '#555558' : '#fff'}">툴팁입니다.</div>
+      <div slot="contents" style="color: ${args.color === 'light' ? '#555558' : '#fff'}">툴팁입니다.</div>
     </dwc-tooltip>`,
   argTypes: {
     direction: {
@@ -25,7 +27,7 @@ const meta = {
     },
     color: {
       control: { type: 'inline-radio' },
-      options: ['default', 'white'],
+      options: ['dark', 'light'],
     },
     standard: {
       control: { type: 'inline-radio' },
@@ -34,6 +36,11 @@ const meta = {
     range: {
       control: { type: 'number' },
     },
+    status: {
+      control: { type: 'inline-radio' },
+      options: [-1, 0, 1],
+    },
+    // status: 스토리북 - lit 실시간 적용이 되지 않는다. (라이프사이클 차이)
     slot: {},
     styled: {},
   },
@@ -44,10 +51,11 @@ type Story = StoryObj<Tooltip>;
 
 export const Default: Story = {
   args: {
-    color: 'default',
+    status: 0,
+    name: 'body-4',
+    color: 'dark',
     direction: 'up',
     standard: 'left',
-    styled: { color: 'white' },
   },
 };
 
@@ -71,6 +79,6 @@ export const WhiteBackgroundDownTooltip: Story = {
     ...Default.args,
     direction: 'down',
     range: 70,
-    color: 'white',
+    color: 'light',
   },
 };
