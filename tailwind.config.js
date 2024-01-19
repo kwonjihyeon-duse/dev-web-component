@@ -4,7 +4,7 @@ import plugin from 'tailwindcss/plugin';
 import { typographyTheme, colorTheme } from './src/foundations/index';
 
 export default {
-  content: ['./src/**/*.{js,ts,html,css,scss}', './index.html'],
+  content: ['./src/**/*.{js,ts,html,css,scss}'],
   theme: {
     extend: {
       fontFamily: {
