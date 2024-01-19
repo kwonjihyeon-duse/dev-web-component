@@ -61,10 +61,6 @@
   @include direction('down');
 }
 
-.left {
-  @include direction('left');
-}
-
 .dark {
   @apply bg-gray-800;
 }

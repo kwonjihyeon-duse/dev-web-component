@@ -49,7 +49,7 @@ export class Tooltip extends TailwindElement(style) {
       this._hideAfterSeconds(this.status);
     }
 
-    const range = this.range && Number.isInteger(this.range) ? `${this.range}px` : '10px';
+    const range = this.range && Number(this.range) ? `${this.range}px` : '10px';
 
     return html`<div
       style="${this.styled}"
