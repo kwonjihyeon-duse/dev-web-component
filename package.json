@@ -69,7 +69,6 @@
     "vite-plugin-istanbul": "^5.0.0"
   },
   "dependencies": {
-    "@lit/react": "^1.0.2",
     "vite-plugin-svgo": "^1.4.0"
   },
   "overrides": {
