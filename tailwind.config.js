@@ -13,10 +13,44 @@ export default {
       colors: {
         ...colorTheme,
       },
+      padding: ({ theme }) => ({
+        'dwc-1': theme('spacing[0.5]'),
+        'dwc-2': theme('spacing[1]'),
+        'dwc-3': theme('spacing[1.5]'),
+        'dwc-4': theme('spacing[2]'), // 4px 간격
+        'dwc-5': theme('spacing[3]'),
+        'dwc-6': theme('spacing[4]'),
+        'dwc-7': theme('spacing[5]'),
+        'dwc-8': theme('spacing[6]'), // 8px 간격
+        'dwc-9': theme('spacing[8]'),
+        'dwc-10': theme('spacing[10]'),
+      }),
+      margin: ({ theme }) => ({
+        'dwc-1': theme('spacing[0.5]'),
+        'dwc-2': theme('spacing[1]'),
+        'dwc-3': theme('spacing[1.5]'),
+        'dwc-4': theme('spacing[2]'), // 4px 간격
+        'dwc-5': theme('spacing[3]'),
+        'dwc-6': theme('spacing[4]'),
+        'dwc-7': theme('spacing[5]'),
+        'dwc-8': theme('spacing[6]'), // 8px 간격
+        'dwc-9': theme('spacing[8]'),
+        'dwc-10': theme('spacing[10]'),
+      }),
+      borderRadius: ({ theme }) => ({
+        'mo-1': theme('spacing[1]'),
+        'mo-2': theme('spacing[2]'),
+        'mo-3': theme('spacing[3]'),
+        'mo-4': theme('spacing[4]'),
+        'pc-1': theme('spacing[0.5]'),
+        'pc-2': theme('spacing[1.5]'),
+        'pc-3': theme('spacing[2]'),
+        'pc-4': theme('spacing[3]'),
+      }),
     },
   },
   plugins: [
-    plugin(function ({ addBase, addComponents, addUtilities, theme }) {
+    plugin(function ({ addComponents }) {
       addComponents({ ...typographyTheme });
     }),
   ],
