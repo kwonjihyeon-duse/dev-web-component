@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# 환경변수
+.env
+# package lock 파일
+package-lock.json
+# 테스트 코드 coverage
+coverage/

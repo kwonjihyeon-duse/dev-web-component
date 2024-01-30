@@ -1,8 +1,29 @@
 import { mergeConfig } from 'vite';
+import type { AddonOptionsVite } from '@storybook/addon-coverage';
+
+const coverageConfig: AddonOptionsVite = {};
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    {
+      name: '@storybook/addon-coverage',
+      options: {
+        istanbul: {
+          include: ['**/stories/**'],
+          // exclude: ['**/exampleDirectory/**'],
+          excludeNodeModules: true,
+        },
+      },
+    },
+  ],
+  build: {
+    test: {
+      disabledAddons: ['@storybook/addon-essentials/docs'],
+    },
+  },
 
   framework: {
     name: '@storybook/web-components-vite',
