@@ -2,7 +2,7 @@
   position: absolute;
   border-top: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-bottom: 6px solid #232328;
+  border-bottom: 6px solid theme('colors.bg.dark-2');
   border-left: 6px solid transparent;
 
   @if $direction == 'up' {
@@ -34,7 +34,6 @@
 }
 
 .tooltip-wrapper {
-  @apply bg-gray-800;
   position: relative;
   min-width: 94px;
   padding: 8px 12px;
@@ -42,26 +41,12 @@
   box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
   opacity: 1;
   width: fit-content;
-  // @extends
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: -0.3px;
-}
-
-.white {
-  @apply bg-white;
-  color: #555558; // slot 영향 X
 }
 
 .hideAnimation {
   opacity: 0;
   animation: slide-out 0.5s linear;
 }
-
-// .onOpen {
-//   animation: slide-in 0.5s linear;
-// }
 
 .clicked {
   // 버튼 on, off
@@ -74,4 +59,15 @@
 
 .down {
   @include direction('down');
+}
+
+.dark {
+  @apply bg-gray-800;
+}
+
+.light {
+  @apply bg-white;
+  span {
+    border-bottom: 6px solid #fff;
+  }
 }

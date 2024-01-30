@@ -15,8 +15,10 @@ const meta = {
       standard=${args.standard}
       range=${args.range}
       color=${args.color}
+      preset=${args.preset}
+      status=${args.status}
     >
-      <div slot="contents" style="color: ${args.color === 'white' ? '#555558' : '#fff'}">툴팁입니다.</div>
+      <div slot="contents">툴팁입니다.</div>
     </dwc-tooltip>`,
   argTypes: {
     direction: {
@@ -25,7 +27,7 @@ const meta = {
     },
     color: {
       control: { type: 'inline-radio' },
-      options: ['default', 'white'],
+      options: ['dark', 'light'],
     },
     standard: {
       control: { type: 'inline-radio' },
@@ -33,6 +35,10 @@ const meta = {
     },
     range: {
       control: { type: 'number' },
+    },
+    status: {
+      control: { type: 'inline-radio' },
+      options: [-1, 0, 1],
     },
     slot: {},
     styled: {},
@@ -44,10 +50,11 @@ type Story = StoryObj<Tooltip>;
 
 export const Default: Story = {
   args: {
-    color: 'default',
+    status: 0,
+    preset: 'body-4 text-white',
+    color: 'dark',
     direction: 'up',
     standard: 'left',
-    styled: { color: 'white' },
   },
 };
 
@@ -58,19 +65,19 @@ export const ArrowDirectionDown: Story = {
   },
 };
 
-export const RightStandard50: Story = {
+export const RightStandard30: Story = {
   args: {
     ...Default.args,
     standard: 'right',
-    range: 50,
+    range: 30,
   },
 };
 
-export const WhiteBackgroundDownTooltip: Story = {
+export const WhiteBackgroundDown: Story = {
   args: {
     ...Default.args,
+    preset: 'body-4 text-gray-700',
     direction: 'down',
-    range: 70,
-    color: 'white',
+    color: 'light',
   },
 };
