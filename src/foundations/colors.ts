@@ -6,32 +6,8 @@ const fullConfig = resolveConfig(tailwindConfig);
 
 const colorConfig = fullConfig.theme.colors;
 const colorCodes = Object.keys(colorConfig);
-const useColorCodes = [
-  'red',
-  'orange',
-  'brown',
-  'yellow',
-  'green',
-  'mintgreen',
-  'blue',
-  'indigo',
-  'purple',
-  'bluegray',
-  'gray',
-];
-const useThemeCodes = [
-  'primary',
-  'secondary',
-  'text',
-  'background',
-  'bg',
-  'divider',
-  'icon',
-  'other',
-  'state',
-  'state-container',
-  'transparent',
-];
+const useColorCodes = ['red', 'mintgreen', 'indigo', 'bluegray', 'gray'];
+const useThemeCodes = ['brand', 'basic', 'state', 'accent'];
 let textColors: string[] = [];
 colorCodes.map((colorCode) => {
   Object.keys(colorConfig[colorCode]).map((colorCodeKey) => {
