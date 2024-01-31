@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'SpoqaHanSansNeo';
+  src: url('../assets/fonts/SpoqaHanSansNeo-Bold.woff2') format('woff2'),
+    url('../assets/fonts/SpoqaHanSansNeo-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo';
+  src: url('../assets/fonts/SpoqaHanSansNeo-Medium.woff2') format('woff2'),
+    url('../assets/fonts/SpoqaHanSansNeo-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo';
+  src: url('../assets/fonts/SpoqaHanSansNeo-Regular.woff2') format('woff2'),
+    url('../assets/fonts/SpoqaHanSansNeo-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
 /* reset css */
 /* Box sizing rules */
 *,
