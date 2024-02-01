@@ -34,6 +34,7 @@ const Template = () => html`
       <thead>
         <tr>
           <th class="trg-16 text-[#898990]">Style</th>
+          <th class="trg-16 text-[#898990]">Class</th>
           <th class="trg-16 text-[#898990]">Weight</th>
           <th class="trg-16 text-[#898990]">FontSize</th>
           <th class="trg-16 text-[#898990]">Line Height</th>
@@ -43,6 +44,7 @@ const Template = () => html`
       <tbody>
         <tr>
           <td><p class="tbd-40">Tbd40</p></td>
+          <td><p class="tbd-40">tbd-40</p></td>
           <td><p class="tbd-40">Bold(700)</p></td>
           <td><p class="tbd-40">40px</p></td>
           <td><p class="tbd-40">87px</p></td>
@@ -50,6 +52,7 @@ const Template = () => html`
         </tr>
         <tr>
           <td><p class="tbd-24">Tbd24</p></td>
+          <td><p class="tbd-24">tbd-24</p></td>
           <td><p class="tbd-24">Bold(700)</p></td>
           <td><p class="tbd-24">24px</p></td>
           <td><p class="tbd-24">45px</p></td>
@@ -57,6 +60,7 @@ const Template = () => html`
         </tr>
         <tr>
           <td><p class="tmd-24">Tmd24</p></td>
+          <td><p class="tmd-24">tmd-24</p></td>
           <td><p class="tmd-24">Medium(500)</p></td>
           <td><p class="tmd-24">24px</p></td>
           <td><p class="tmd-24">45px</p></td>
@@ -64,6 +68,7 @@ const Template = () => html`
         </tr>
         <tr>
           <td><p class="tmd-22">Tmd22</p></td>
+          <td><p class="tmd-22">tmd-22</p></td>
           <td><p class="tmd-22">Medium(500)</p></td>
           <td><p class="tmd-22">22px</p></td>
           <td><p class="tmd-22">41px</p></td>
@@ -71,6 +76,7 @@ const Template = () => html`
         </tr>
         <tr>
           <td><p class="tbd-20">Tbd20</p></td>
+          <td><p class="tbd-20">tbd-20</p></td>
           <td><p class="tbd-20">Bold(700)</p></td>
           <td><p class="tbd-20">20px</p></td>
           <td><p class="tbd-20">38px</p></td>
@@ -78,6 +84,7 @@ const Template = () => html`
         </tr>
         <tr>
           <td><p class="tmd-20">Tmd20</p></td>
+          <td><p class="tmd-20">tmd-20</p></td>
           <td><p class="tmd-20">Medium(500)</p></td>
           <td><p class="tmd-20">20px</p></td>
           <td><p class="tmd-20">38px</p></td>
@@ -85,6 +92,7 @@ const Template = () => html`
         </tr>
         <tr>
           <td><p class="tbd-18">Tbd18</p></td>
+          <td><p class="tbd-18">tbd-18</p></td>
           <td><p class="tbd-18">Bold(700)</p></td>
           <td><p class="tbd-18">18px</p></td>
           <td><p class="tbd-18">34px</p></td>
@@ -92,6 +100,7 @@ const Template = () => html`
         </tr>
         <tr>
           <td><p class="tmd-18">Tmd18</p></td>
+          <td><p class="tmd-18">tmd-18</p></td>
           <td><p class="tmd-18">Medium(500)</p></td>
           <td><p class="tmd-18">18px</p></td>
           <td><p class="tmd-18">34px</p></td>
@@ -99,6 +108,7 @@ const Template = () => html`
         </tr>
         <tr>
           <td><p class="trg-18">Trg18</p></td>
+          <td><p class="trg-18">trg-18</p></td>
           <td><p class="trg-18">Regular(400)</p></td>
           <td><p class="trg-18">18px</p></td>
           <td><p class="trg-18">px</p></td>
@@ -106,6 +116,7 @@ const Template = () => html`
         </tr>
         <tr>
           <td><p class="tbd-16">Tbd16</p></td>
+          <td><p class="tbd-16">tbd-16</p></td>
           <td><p class="tbd-16">Bold(700)</p></td>
           <td><p class="tbd-16">16px</p></td>
           <td><p class="tbd-16">30px</p></td>
@@ -113,6 +124,7 @@ const Template = () => html`
         </tr>
         <tr>
           <td><p class="tmd-16">Tmd16</p></td>
+          <td><p class="tmd-16">tmd-16</p></td>
           <td><p class="tmd-16">Medium(500)</p></td>
           <td><p class="tmd-16">16px</p></td>
           <td><p class="tmd-16">30px</p></td>
@@ -120,6 +132,7 @@ const Template = () => html`
         </tr>
         <tr>
           <td><p class="trg-16">Trg16</p></td>
+          <td><p class="trg-16">trg-16</p></td>
           <td><p class="trg-16">Regular(400)</p></td>
           <td><p class="trg-16">16px</p></td>
           <td><p class="trg-16">30px</p></td>
@@ -127,6 +140,7 @@ const Template = () => html`
         </tr>
         <tr>
           <td><p class="tmd-14">Tbd14</p></td>
+          <td><p class="tmd-14">tbd-14</p></td>
           <td><p class="tmd-14">Medium(500)</p></td>
           <td><p class="tmd-14">14px</p></td>
           <td><p class="tmd-14">26px</p></td>
@@ -134,6 +148,7 @@ const Template = () => html`
         </tr>
         <tr>
           <td><p class="trg-14">Trg14</p></td>
+          <td><p class="trg-14">trg-14</p></td>
           <td><p class="trg-14">Regular(400)</p></td>
           <td><p class="trg-14">14px</p></td>
           <td><p class="trg-14">26px</p></td>
@@ -141,6 +156,7 @@ const Template = () => html`
         </tr>
         <tr>
           <td><p class="tmd-12">Tbd12</p></td>
+          <td><p class="tmd-12">tbd-12</p></td>
           <td><p class="tmd-12">Medium(500)</p></td>
           <td><p class="tmd-12">12px</p></td>
           <td><p class="tmd-12">23px</p></td>
@@ -148,6 +164,7 @@ const Template = () => html`
         </tr>
         <tr>
           <td><p class="trg-12">Trg12</p></td>
+          <td><p class="trg-12">trg-12</p></td>
           <td><p class="trg-12">Regular(400)</p></td>
           <td><p class="trg-12">12px</p></td>
           <td><p class="trg-12">23px</p></td>
