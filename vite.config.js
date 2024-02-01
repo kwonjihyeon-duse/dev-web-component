@@ -9,8 +9,6 @@ export default defineConfig(({ command, mode }) => {
     define: {
       __APP_ENV__: JSON.stringify(env.APP_ENV),
     },
-    assetsInclude: ['/sb-preview/**'],
-    publicDir: false,
     resolve: {
       alias: {
         '@': resolve(__dirname, './src'),
@@ -29,6 +27,7 @@ export default defineConfig(({ command, mode }) => {
         // external: /^lit/
         output: {
           assetFileNames: (assetInfo) => {
+            console.log('assetInfo', assetInfo);
             let extType = assetInfo.name.split('.').at(1);
             console.log('extType', extType);
             if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
@@ -38,7 +37,7 @@ export default defineConfig(({ command, mode }) => {
           },
           chunkFileNames: (assetInfo) => {
             let extType = assetInfo.name.split('.').at(1);
-            console.log('assetInfo', assetInfo);
+            // console.log('assetInfo', assetInfo);
             return 'assets/js/[name]-[hash].js';
           },
           // entryFileNames: 'assets/js/[name]-[hash].js',
