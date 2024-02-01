@@ -116,9 +116,3 @@ textarea:not([rows]) {
 :target {
   scroll-margin-block: 5ex;
 }
-
-@layer base {
-  .text-dkdkkd {
-    @apply text-primary-light-1;
-  }
-}
