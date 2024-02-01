@@ -1,6 +1,5 @@
 import { customElement } from 'lit/decorators.js';
-import { html, unsafeCSS } from 'lit';
-import style from './button.scss?inline';
+import { html } from 'lit';
 import { Button } from './button';
 
 @customElement('dwc-outline-button')
@@ -11,8 +10,6 @@ export class OutlineButton extends Button {
       <slot></slot>${this.label}<slot name="rightIcon"></slot>
     </button>`;
   }
-
-  static styles = unsafeCSS(style);
 }
 
 declare global {
