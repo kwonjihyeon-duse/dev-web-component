@@ -66,5 +66,3 @@ export const typographyTheme = {
   '.tmd-12': { ...makeFont(12, 'medium') },
   '.trg-12': { ...makeFont(12, 'regular') },
 };
-
-console.log('typographyTheme', typographyTheme);
