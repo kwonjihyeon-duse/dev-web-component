@@ -2,14 +2,20 @@
   position: absolute;
   border-top: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-bottom: 6px solid theme('colors.bg.dark-2');
+  border-bottom: 6px solid theme('colors.basic.surface-3');
   border-left: 6px solid transparent;
 
-  @if $direction == 'up' {
+  @if $direction == 'top' {
     top: -12px;
-  } @else if $direction == 'down' {
+  } @else if $direction == 'bottom' {
     bottom: -12px;
     transform: rotate(180deg);
+  } @else if $direction == 'left' {
+    left: -12px;
+    transform: rotate(270deg);
+  } @else if $direction == 'right' {
+    right: -12px;
+    transform: rotate(90deg);
   }
 }
 
@@ -43,22 +49,32 @@
   width: fit-content;
 }
 
-.hideAnimation {
+.hide-tooltip {
   opacity: 0;
   animation: slide-out 0.5s linear;
 }
 
-.clicked {
+.click-tooltip {
   // 버튼 on, off
   display: none;
 }
 
-.up {
-  @include direction('up');
+.TOP_LEFT,
+.TOP_RIGHT {
+  @include direction('top');
 }
 
-.down {
-  @include direction('down');
+.BOTTOM_LEFT,
+.BOTTOM_RIGHT {
+  @include direction('bottom');
+}
+
+.CENTER_LEFT {
+  @include direction('left');
+}
+
+.CENTER_RIGHT {
+  @include direction('right');
 }
 
 .dark {
@@ -68,6 +84,6 @@
 .light {
   @apply bg-white;
   span {
-    border-bottom: 6px solid #fff;
+    border-bottom: 6px solid theme('colors.basic.surface-1');
   }
 }
