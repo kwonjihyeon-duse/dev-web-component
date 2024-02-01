@@ -2,7 +2,7 @@
   position: absolute;
   border-top: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-bottom: 6px solid theme('colors.bg.dark-2');
+  border-bottom: 6px solid theme('colors.basic.surface-3');
   border-left: 6px solid transparent;
 
   @if $direction == 'top' {
@@ -84,6 +84,6 @@
 .light {
   @apply bg-white;
   span {
-    border-bottom: 6px solid #fff;
+    border-bottom: 6px solid theme('colors.basic.surface-1');
   }
 }

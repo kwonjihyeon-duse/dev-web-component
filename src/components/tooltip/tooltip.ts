@@ -68,10 +68,8 @@ export class Tooltip extends TailwindElement(style) {
         this._standard = 'right';
         break;
       case 'CENTER_LEFT':
-        this._standard = 'top';
-        break;
       case 'CENTER_RIGHT':
-        this._standard = 'bottom';
+        this._standard = 'top';
         break;
     }
 
