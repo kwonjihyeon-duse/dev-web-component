@@ -1,49 +1,67 @@
-function headingBase(fontSize: string, lineHeight: string) {
-  return {
-    fontSize,
-    fontWeight: '700',
-    lineHeight,
-    letterSpacing: '-0.3px',
-  };
+interface IndexNumberObject {
+  [index: number]: string;
 }
 
-function titleBase(fontSize: string, lineHeight: string) {
-  return {
-    fontSize,
-    fontWeight: '500',
-    lineHeight,
-    letterSpacing: '-0.3px',
-  };
+interface IndexStringObject {
+  [index: string]: string;
 }
 
-function bodyBase(fontSize: string, lineHeight: string) {
+const fontSizes: IndexNumberObject = {
+  12: '12px',
+  14: '14px',
+  16: '16px',
+  18: '18px',
+  20: '20px',
+  22: '22px',
+  24: '24px',
+  40: '40px',
+};
+
+const fontLineHeights: IndexNumberObject = {
+  12: '23px',
+  14: '26px',
+  16: '30px',
+  18: '34px',
+  20: '38px',
+  22: '41px',
+  24: '45px',
+  40: '87px',
+};
+
+const fontWeights: IndexStringObject = {
+  bold: '700',
+  medium: '500',
+  regular: '400',
+};
+
+const letterSpacings: IndexStringObject = {
+  '-0.3': '-0.3px',
+};
+
+// TODO: 리펙토링 필요할듯
+const makeFont = (fontSize: number, fontWeight: string, letterSpacing: string = '-0.3') => {
   return {
-    fontSize,
-    fontWeight: '400',
-    lineHeight,
-    letterSpacing: '-0.3px',
+    fontSize: fontSizes[fontSize],
+    fontLineHeight: fontLineHeights[fontSize],
+    fontWeight: fontWeights[fontWeight],
+    letterSpacing: letterSpacings[letterSpacing],
   };
-}
+};
 
 export const typographyTheme = {
-  '.heading-1': { ...headingBase('40px', '60px') },
-  '.heading-2': { ...headingBase('34px', '50px') },
-  '.heading-3': { ...headingBase('32px', '40px') },
-  '.heading-4': { ...headingBase('24px', '36px') },
-  '.heading-5': { ...headingBase('20px', '30px') },
-  '.heading-6': { ...headingBase('18px', '27px') },
-  '.heading-7': { ...headingBase('16px', '24px') },
-  '.title-medium-1': { ...titleBase('16px', '24px') },
-  '.title-medium-2': { ...titleBase('15px', '22px') },
-  '.title-medium-3': { ...titleBase('14px', '21px') },
-  '.title-medium-4': { ...titleBase('13px', '20px') },
-  '.title-medium-5': { ...titleBase('12px', '18px') },
-  '.title-medium-6': { ...titleBase('11px', '16px') },
-  '.body-1': { ...bodyBase('16px', '24px') },
-  '.body-2': { ...bodyBase('15px', '23px') },
-  '.body-3': { ...bodyBase('14px', '21px') },
-  '.body-4': { ...bodyBase('13px', '20px') },
-  '.hyperlink': { ...bodyBase('13px', '20px') },
-  '.caption-1': { ...bodyBase('12px', '18px') },
-  '.caption-2': { ...bodyBase('11px', '16px') },
+  'tbd-40': { ...makeFont(40, 'bold') },
+  'tbd-24': { ...makeFont(24, 'bold') },
+  'tmd-22': { ...makeFont(22, 'medium') },
+  'tbd-20': { ...makeFont(20, 'bold') },
+  'tmd-20': { ...makeFont(20, 'medium') },
+  'tbd-18': { ...makeFont(18, 'bold') },
+  'tmd-18': { ...makeFont(18, 'medium') },
+  'trg-18': { ...makeFont(18, 'regular') },
+  'tbd-16': { ...makeFont(16, 'bold') },
+  'tmd-16': { ...makeFont(16, 'medium') },
+  'trg-16': { ...makeFont(16, 'regular') },
+  'tmd-14': { ...makeFont(14, 'medium') },
+  'trg-14': { ...makeFont(14, 'regular') },
+  'tmd-12': { ...makeFont(12, 'medium') },
+  'trg-12': { ...makeFont(12, 'regular') },
 };
