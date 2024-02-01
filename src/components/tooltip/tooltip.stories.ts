@@ -8,11 +8,11 @@ const meta = {
   title: 'Components/Tooltip',
   tags: ['autodocs'],
   component: 'dwc-tooltip',
+  decorators: [(Story) => html`<div style="margin: 3em; margin-top: 6em">${Story()}</div>`],
   render: (args: Tooltip) =>
     html`<dwc-tooltip
       direction=${args.direction}
       styled=${args.styled}
-      standard=${args.standard}
       range=${args.range}
       color=${args.color}
       preset=${args.preset}
@@ -23,15 +23,11 @@ const meta = {
   argTypes: {
     direction: {
       control: { type: 'inline-radio' },
-      options: ['up', 'down'],
+      options: ['TOP_LEFT', 'TOP_RIGHT', 'BOTTOM_LEFT', 'BOTTOM_RIGHT', 'CENTER_LEFT', 'CENTER_RIGHT'],
     },
     color: {
       control: { type: 'inline-radio' },
       options: ['dark', 'light'],
-    },
-    standard: {
-      control: { type: 'inline-radio' },
-      options: ['left', 'right'],
     },
     range: {
       control: { type: 'number' },
@@ -48,36 +44,50 @@ export default meta;
 
 type Story = StoryObj<Tooltip>;
 
-export const Default: Story = {
+export const TopLeft: Story = {
   args: {
     status: 0,
     preset: 'body-4 text-white',
     color: 'dark',
-    direction: 'up',
-    standard: 'left',
+    direction: 'TOP_LEFT',
   },
 };
 
-export const ArrowDirectionDown: Story = {
+export const TopRight: Story = {
   args: {
-    ...Default.args,
-    direction: 'down',
+    ...TopLeft.args,
+    direction: 'TOP_RIGHT',
   },
 };
 
-export const RightStandard30: Story = {
+export const BottomLeft30: Story = {
   args: {
-    ...Default.args,
-    standard: 'right',
+    ...TopLeft.args,
+    direction: 'BOTTOM_LEFT',
     range: 30,
   },
 };
 
-export const WhiteBackgroundDown: Story = {
+export const BottomRight: Story = {
   args: {
-    ...Default.args,
+    ...TopLeft.args,
+    direction: 'BOTTOM_RIGHT',
+  },
+};
+
+export const WhiteCenterRight: Story = {
+  args: {
+    ...TopLeft.args,
     preset: 'body-4 text-gray-700',
-    direction: 'down',
+    direction: 'CENTER_RIGHT',
     color: 'light',
+  },
+};
+
+export const WhiteCenterLeft20: Story = {
+  args: {
+    ...WhiteCenterRight.args,
+    direction: 'CENTER_LEFT',
+    range: 20,
   },
 };
