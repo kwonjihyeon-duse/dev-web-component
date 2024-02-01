@@ -1,4 +1,4 @@
-import { html, unsafeCSS } from 'lit';
+import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import styles from './avatar.scss?inline';
 import TailwindElement from '@/shared/tailwind.element';
@@ -29,18 +29,7 @@ export class Avatar extends TailwindElement(styles) {
   activeIcon = html`<div class="status-icon"></div>`;
 
   cameraIcon = html`<div class="camera-wrap" @click=${this.onClickCamera}>
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M8.00004 10.7428C9.0637 10.7428 9.92596 9.85594 9.92596 8.76189C9.92596 7.66784 9.0637 6.78094 8.00004 6.78094C6.93638 6.78094 6.07411 7.66784 6.07411 8.76189C6.07411 9.85594 6.93638 10.7428 8.00004 10.7428Z"
-        fill="#0C0C0D"
-      />
-      <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-        d="M9.76446 2.66666C10.045 2.66666 10.3015 2.82971 10.427 3.08783L10.7583 3.7693C10.8837 4.02742 11.1402 4.19047 11.4208 4.19047H13.1852C14.0034 4.19047 14.6667 4.8727 14.6667 5.71428V11.8095C14.6667 12.6511 14.0034 13.3333 13.1852 13.3333H2.81486C1.99666 13.3333 1.33337 12.6511 1.33337 11.8095V5.71428C1.33337 4.8727 1.99666 4.19047 2.81486 4.19047H4.57928C4.85985 4.19047 5.11634 4.02742 5.24181 3.7693L5.57308 3.08783C5.69856 2.82971 5.95505 2.66666 6.23562 2.66666H9.76446ZM8.00004 11.8095C9.63644 11.8095 10.963 10.445 10.963 8.76189C10.963 7.07874 9.63644 5.71428 8.00004 5.71428C6.36364 5.71428 5.03708 7.07874 5.03708 8.76189C5.03708 10.445 6.36364 11.8095 8.00004 11.8095ZM3.92597 6.2857C3.92597 6.60129 3.67724 6.85713 3.37041 6.85713C3.06359 6.85713 2.81486 6.60129 2.81486 6.2857C2.81486 5.97011 3.06359 5.71428 3.37041 5.71428C3.67724 5.71428 3.92597 5.97011 3.92597 6.2857Z"
-        fill="#0C0C0D"
-      />
-    </svg>
+    <dwc-icon slot="rightIcon" size="24" name="CameraFill" number-of-size="16"></dwc-icon>
   </div>`;
 
   render() {
@@ -51,8 +40,6 @@ export class Avatar extends TailwindElement(styles) {
       </div>
     `;
   }
-
-  static styles = unsafeCSS(styles);
 }
 
 declare global {
