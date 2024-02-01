@@ -8,7 +8,7 @@ const meta = {
   title: 'Components/Tooltip',
   tags: ['autodocs'],
   component: 'dwc-tooltip',
-  decorators: [(Story) => html`<div class="flex justify-center items-center">${Story()}</div>`],
+  decorators: [(Story) => html`<div class="flex justify-center items-center min-h-full">${Story()}</div>`],
   render: (args: Tooltip) =>
     html`<dwc-tooltip
       direction=${args.direction}
