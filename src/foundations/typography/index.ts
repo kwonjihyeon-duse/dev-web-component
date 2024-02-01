@@ -42,26 +42,29 @@ const letterSpacings: IndexStringObject = {
 const makeFont = (fontSize: number, fontWeight: string, letterSpacing: string = '-0.3') => {
   return {
     fontSize: fontSizes[fontSize],
-    fontLineHeight: fontLineHeights[fontSize],
+    lineHeight: fontLineHeights[fontSize],
     fontWeight: fontWeights[fontWeight],
     letterSpacing: letterSpacings[letterSpacing],
   };
 };
 
 export const typographyTheme = {
-  'tbd-40': { ...makeFont(40, 'bold') },
-  'tbd-24': { ...makeFont(24, 'bold') },
-  'tmd-22': { ...makeFont(22, 'medium') },
-  'tbd-20': { ...makeFont(20, 'bold') },
-  'tmd-20': { ...makeFont(20, 'medium') },
-  'tbd-18': { ...makeFont(18, 'bold') },
-  'tmd-18': { ...makeFont(18, 'medium') },
-  'trg-18': { ...makeFont(18, 'regular') },
-  'tbd-16': { ...makeFont(16, 'bold') },
-  'tmd-16': { ...makeFont(16, 'medium') },
-  'trg-16': { ...makeFont(16, 'regular') },
-  'tmd-14': { ...makeFont(14, 'medium') },
-  'trg-14': { ...makeFont(14, 'regular') },
-  'tmd-12': { ...makeFont(12, 'medium') },
-  'trg-12': { ...makeFont(12, 'regular') },
+  '.tbd-40': { ...makeFont(40, 'bold') },
+  '.tbd-24': { ...makeFont(24, 'bold') },
+  '.tmd-24': { ...makeFont(24, 'medium') },
+  '.tmd-22': { ...makeFont(22, 'medium') },
+  '.tbd-20': { ...makeFont(20, 'bold') },
+  '.tmd-20': { ...makeFont(20, 'medium') },
+  '.tbd-18': { ...makeFont(18, 'bold') },
+  '.tmd-18': { ...makeFont(18, 'medium') },
+  '.trg-18': { ...makeFont(18, 'regular') },
+  '.tbd-16': { ...makeFont(16, 'bold') },
+  '.tmd-16': { ...makeFont(16, 'medium') },
+  '.trg-16': { ...makeFont(16, 'regular') },
+  '.tmd-14': { ...makeFont(14, 'medium') },
+  '.trg-14': { ...makeFont(14, 'regular') },
+  '.tmd-12': { ...makeFont(12, 'medium') },
+  '.trg-12': { ...makeFont(12, 'regular') },
 };
+
+console.log('typographyTheme', typographyTheme);
