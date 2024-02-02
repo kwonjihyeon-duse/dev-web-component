@@ -91,7 +91,7 @@ export const Disabled = {
       <dwc-button style="margin-right:6px" label="Click Me!" disabled></dwc-button>
       <dwc-button style="margin-right:6px" size="lg" label="Click Me!" disabled></dwc-button>
       <dwc-button style="margin-right:6px" size="xl" label="Click Me!" disabled></dwc-button>
-      <div style="width:400px; height:51px">
+      <div style="width:300px; height:51px">
         <dwc-button style="margin-right:6px" size="lg" label="Click Me!" color="secondary" disabled full></dwc-button>
       </div>
     </div>`,
