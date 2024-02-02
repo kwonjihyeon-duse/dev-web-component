@@ -1,4 +1,4 @@
-import { html, unsafeCSS } from 'lit';
+import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import styles from './button.scss?inline';
@@ -28,8 +28,6 @@ export class Button extends TailwindElement(styles) {
       </button>
     `;
   }
-
-  static styles = unsafeCSS(styles);
 }
 
 declare global {

@@ -38,7 +38,7 @@ const meta = {
       options: ['primary', 'secondary', 'gray'],
     },
   },
-  component: 'my-button',
+  component: 'dwc-button',
 } satisfies Meta<Button>;
 
 export default meta;
