@@ -14,86 +14,83 @@
   padding: $padding;
 }
 
-@mixin button-style($color, $background, $hover-background, $disabled-background, $disabled-color: $color) {
+@mixin button-style($color, $background, $hover-background) {
   color: $color;
   background: $background;
-
-  &:disabled {
-    background-color: $disabled-background;
-    color: $disabled-color;
-    &:hover {
-      background-color: $disabled-background;
-      color: $disabled-color;
-    }
-  }
 
   &:hover {
     background-color: $hover-background;
   }
 }
 
+@mixin outline-style($color, $border) {
+  color: $color;
+  border: 1px solid $border;
+}
+
 .button {
   @extend %button-base;
 
-  &--basic {
-    border-radius: 0.25rem;
+  border-radius: 0.25rem;
+
+  &--full {
+    width: 100% !important;
   }
 
-  &--round {
-    border-radius: 45px;
+  &:disabled {
+    background: theme('colors.gray.50');
+    color: theme('colors.gray.300');
+    &:hover {
+      background: theme('colors.gray.50');
+      color: theme('colors.gray.300');
+    }
   }
 
   &--primary {
-    @include button-style(#fff, #1db177, #189966, #d2efe4);
+    @include button-style(theme('colors.white'), theme('colors.brand.primary'), theme('colors.mintgreen.600'));
   }
 
   &--secondary {
-    @include button-style(white, #535c68, #3d444d, #cdd5e1);
+    @include button-style(theme('colors.white'), theme('colors.brand.secondary'), theme('colors.bluegray.700'));
   }
 
-  &--gray {
-    @include button-style(#666666, #f5f5f5, #dadadc, #e7e7e9, #cacacd);
-    &:hover {
-      color: #898990;
-    }
+  &--xs {
+    @include button-size(12px, 3px 8px);
   }
 
   &--sm {
-    @include button-size(13px, 8px);
+    @include button-size(13px, 7px 12px);
   }
 
   &--md {
-    @include button-size(14px, 12px);
+    @include button-size(14px, 11px 16px);
   }
 
   &--lg {
-    @include button-size(14px, 16px);
+    @include button-size(14px, 15px 20px);
   }
 
   &--xl {
-    @include button-size(16px, 19px 16px);
+    @include button-size(16px, 22px 28px);
   }
 
   &--outline {
-    background: white;
-    &:hover {
-      background: #f5f5f5;
+    background: theme('colors.white') !important;
+
+    &:disabled {
+      @include outline-style(theme('colors.gray.100'), theme('colors.gray.100'));
+      &:hover {
+        color: theme('colors.gray.100');
+        border: 1px solid theme('colors.gray.100');
+      }
     }
 
     &--primary {
-      @include button-style(#1db177, white, #f5f5f5, #fff, #d2efe4);
-      border: 1px solid #1db177;
-      &:disabled {
-        border: 1px solid #d2efe4;
-      }
+      @include outline-style(theme('colors.mintgreen.500'), theme('colors.mintgreen.500'));
     }
 
     &--secondary {
-      @include button-style(#535c68, white, #f5f5f5, #fff, #ced5e0);
-      border: 1px solid #cdd5e1;
-      &:disabled {
-        border: 1px solid #ebf0f8;
-      }
+      @include outline-style(theme('colors.brand.secondary'), theme('colors.brand.secondary'));
     }
   }
 
@@ -101,27 +98,23 @@
     background: white;
     border: none;
     &:hover {
-      background: #f5f5f5;
+      background: theme('colors.bluegray.50') !important;
+      color: theme('colors.brand.primary') !important;
+    }
+
+    &:disabled {
+      background: theme('colors.white');
+      color: theme('colors.gray.300');
+      &:hover {
+        background: theme('colors.white') !important;
+        color: theme('colors.gray.300') !important;
+      }
     }
 
     &--primary {
-      @include button-style(#1db177, white, #fff, #fff);
+      @include button-style(#1db177, white, #fff);
       &:hover {
-        color: #189966;
-      }
-    }
-
-    &--secondary {
-      @include button-style(#535c68, white, #fff, #fff);
-      &:hover {
-        color: #898990;
-      }
-    }
-
-    &--gray {
-      @include button-style(#666666, white, #fff, #fff);
-      &:hover {
-        color: #a6a6ab;
+        color: theme('colors.gray.300');
       }
     }
   }
