@@ -33,3 +33,6 @@ dist-ssr
 package-lock.json
 # 테스트 코드 coverage
 coverage/
+
+# chromatic 배포용 storybook static 페이지
+storybook-static

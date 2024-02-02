@@ -1,10 +1,11 @@
-const IconMap =  {
+const IconMap = {
   AgentFill: () => import('./agent-fill.svg'),
   AirConditionerairConditioner: () => import('./air-conditionerair-conditioner.svg'),
   Amenity: () => import('./amenity.svg'),
   Apartment: () => import('./apartment.svg'),
   Apple: () => import('./apple.svg'),
   Apt: () => import('./apt.svg'),
+  ArrowUp: () => import('./arrow-up.svg'),
   ArrowDown: () => import('./arrow-down.svg'),
   ArrowExchangeHorizontal: () => import('./arrow-exchange-horizontal.svg'),
   ArrowExchangeVertical: () => import('./arrow-exchange-vertical.svg'),
@@ -160,6 +161,6 @@ const IconMap =  {
   XmarkCircleFill: () => import('./xmark-circle-fill.svg'),
   Xmark: () => import('./xmark.svg'),
   ZoomIn: () => import('./zoom-in.svg'),
-}
+};
 
 export default IconMap;
