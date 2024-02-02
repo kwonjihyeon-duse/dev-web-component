@@ -88,6 +88,8 @@ const arrows = [
   'ChangeMeasure',
   'ChangeSqaremeter',
 ];
+
+const interfaces = ['Backspace', 'SettingFill', 'Setting', 'HamburgerMenu', 'Menu', 'List'];
 const IconsTemplate = (args: IconProps, { loaded: { Icon } }) => {
   return html`
     <div>01. Users</div>
@@ -104,8 +106,10 @@ const IconsTemplate = (args: IconProps, { loaded: { Icon } }) => {
         return html` <dwc-icon name=${key} number-of-size=${args.numberOfSize}></dwc-icon> `;
       })}
     </div>
+    <div>03. Arrows</div>
     <div style="display:grid;grid-template-columns: repeat(20, 1fr);row-gap:10px;">
       ${Object.keys(IconMap).map((key) => {
+        if (interfaces.indexOf(key) < 0) return;
         return html` <dwc-icon name=${key} number-of-size=${args.numberOfSize}></dwc-icon> `;
       })}
     </div>
