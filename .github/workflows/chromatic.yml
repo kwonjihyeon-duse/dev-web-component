@@ -20,7 +20,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: .nvmrc
-      - run: yarn
+      - name: install
+        run: npm i
+      - name: Build Storybook
+        run: npm run build-storybook
         #👇 Adds Chromatic as a step in the workflow
       - uses: chromaui/action@v1
         # Options required for Chromatic's GitHub Action
@@ -28,3 +31,5 @@ jobs:
           #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/intro-to-storybook/react/ko/deploy/ to obtain it
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          storybookBuildDir: storybook-static
+          workingDir: packages/storybook
