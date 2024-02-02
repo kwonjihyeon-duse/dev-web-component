@@ -25,10 +25,8 @@ jobs:
           node-version-file: .nvmrc
       - name: install
         run: npm i
-      - name: Build Storybook
-        run: npm run build-storybook
-        #👇 Adds Chromatic as a step in the workflow
-      - uses: chromaui/action@latest
+      - name: Publish to Chromatic
+        uses: chromaui/action@latest
         # Options required for Chromatic's GitHub Action
         with:
           #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/intro-to-storybook/react/ko/deploy/ to obtain it
