@@ -32,6 +32,10 @@ const meta = {
     range: {
       control: { type: 'number' },
     },
+    status: {
+      control: { type: 'inline-radio' },
+      options: [-1, 0, 1],
+    },
     slot: {},
     styled: {},
   },
