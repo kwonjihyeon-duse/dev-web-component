@@ -1,0 +1,122 @@
+$gray: theme('colors.gray.200');
+$red: theme('colors.red.600');
+$black: theme('colors.black');
+$primary: theme('colors.brand.primary');
+
+.select-wrap {
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+
+  .label {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: -0.3px;
+    margin-bottom: 10px;
+    color: $black;
+    &.error {
+      color: $red;
+    }
+  }
+
+  .custom-options {
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    outline: 1px solid $gray;
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 100%;
+    border-radius: 0 0 4px 4px;
+
+    .custom-option {
+      padding: 10px 20px;
+      color: $black;
+      &:hover {
+        background-color: theme('colors.gray.50');
+        color: $primary;
+      }
+
+      &.selected {
+        background-color: theme('colors.gray.50');
+        color: $primary;
+      }
+    }
+  }
+
+  .select {
+    width: 100%;
+    color: $black;
+    position: relative;
+
+    &--basic {
+      border: 1px solid $gray;
+      padding: 12px 20px;
+      height: 48px;
+      border-radius: 4px;
+    }
+
+    &--underline {
+      height: 38px;
+      border-bottom: 1px solid $gray;
+    }
+
+    outline: 0 !important;
+    -webkit-appearance: none; /* for chrome */
+    -moz-appearance: none; /*for firefox*/
+    appearance: none;
+    &::-ms-expand {
+      display: none; /*for IE10,11*/
+    }
+  }
+
+  .disabled {
+    background: theme('colors.gray.50');
+    color: theme('colors.gray.300');
+    cursor: default;
+  }
+
+  .open {
+    border-radius: 4px 4px 0 0;
+  }
+
+  .icon {
+    width: 20px;
+    position: absolute;
+    pointer-events: none;
+    color: $gray;
+    transition: 0.3s;
+
+    &.error {
+      color: $red;
+    }
+
+    &.underline {
+      right: 0;
+    }
+
+    &.basic {
+      right: 20px;
+    }
+
+    &.reverse {
+      transform: rotate(180deg);
+    }
+  }
+
+  .not-selected {
+    color: $gray;
+  }
+
+  .selected {
+    color: $black;
+  }
+
+  .error {
+    border-color: $red;
+    color: $gray;
+  }
+}
