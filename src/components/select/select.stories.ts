@@ -5,7 +5,7 @@ import '../icon/icon';
 import { html } from 'lit';
 
 const Template = (args: Select) => html`
-  <div style="width:280px; height:350px">
+  <div style="width:280px; height:320px;">
     <dwc-select
       style="margin: 0 0.5rem"
       label=${args.label}
@@ -54,18 +54,18 @@ type Story = StoryObj<Select>;
 export const Default: Story = {
   args: {
     label: 'Label',
-    placeholder: '항목을 선택해주세요',
+    placeholder: '선택',
     options: selectOptions,
   },
 };
 
-export const Primary = {
+export const SelectType = {
   render: () =>
-    html` <div style="display:flex; height:350px">
-      <div style="margin-right:6px; width:280px">
-        <dwc-select label="Label" placeholder="항목을 선택해주세요" .options=${selectOptions}></dwc-select>
+    html`<div style="display:flex; height:320px">
+      <div style="width:260px">
+        <dwc-select label="Label" placeholder="선택" .options=${selectOptions}></dwc-select>
       </div>
-      <div style="margin-left:12px; width:280px">
+      <div style="margin-left:20px; width:260px">
         <dwc-select
           type="underline"
           label="Label"

@@ -5,8 +5,24 @@ $primary: theme('colors.brand.primary');
 
 .select-wrap {
   width: 100%;
+  min-width: 220px;
   cursor: pointer;
   outline: none;
+
+  &:focus {
+    .label {
+      color: $primary;
+    }
+    .select {
+      &--basic {
+        border: 1px solid $primary;
+      }
+
+      &--underline {
+        border-bottom: 2px solid $primary;
+      }
+    }
+  }
 
   .label {
     font-size: 14px;
@@ -21,36 +37,26 @@ $primary: theme('colors.brand.primary');
     }
   }
 
-  .custom-options {
-    width: 100%;
-    max-height: 250px;
-    overflow-y: auto;
-    outline: 1px solid $gray;
-    position: absolute;
-    display: none;
-    left: 0;
-    top: 100%;
-    border-radius: 0 0 4px 4px;
-
-    .custom-option {
-      padding: 10px 20px;
-      color: $black;
-      &:hover {
-        background-color: theme('colors.gray.50');
-        color: $primary;
-      }
-
-      &.selected {
-        background-color: theme('colors.gray.50');
-        color: $primary;
-      }
-    }
-  }
-
   .select {
     width: 100%;
     color: $black;
+    display: flex;
+    align-items: center;
     position: relative;
+
+    .selected-value {
+      max-width: calc(100% - 24px);
+      vertical-align: middle;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: -0.3px;
+      height: 19px;
+    }
 
     &--basic {
       border: 1px solid $gray;
@@ -61,7 +67,7 @@ $primary: theme('colors.brand.primary');
 
     &--underline {
       height: 38px;
-      border-bottom: 1px solid $gray;
+      border-bottom: 2px solid $gray;
     }
 
     outline: 0 !important;
@@ -70,6 +76,51 @@ $primary: theme('colors.brand.primary');
     appearance: none;
     &::-ms-expand {
       display: none; /*for IE10,11*/
+    }
+  }
+
+  .custom-options {
+    width: 100%;
+    max-height: 246px;
+    overflow-y: auto;
+    outline: 1px solid $gray;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    border-radius: 0 0 4px 4px;
+    background: theme('colors.white');
+    z-index: 2;
+    display: none;
+
+    .custom-option {
+      padding: 10px 20px;
+      display: flex;
+      p {
+        color: $black;
+        width: 100%;
+        font-size: 14px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      &:hover {
+        background-color: theme('colors.gray.50');
+        p {
+          color: $primary;
+        }
+      }
+
+      &.selected {
+        background-color: theme('colors.gray.50');
+        p {
+          color: $primary;
+        }
+      }
+    }
+
+    &.show {
+      display: block;
     }
   }
 
@@ -84,7 +135,8 @@ $primary: theme('colors.brand.primary');
   }
 
   .icon {
-    width: 20px;
+    width: 24px;
+    height: 24px;
     position: absolute;
     pointer-events: none;
     color: $gray;
