@@ -47,7 +47,7 @@ type Story = StoryObj<Tooltip>;
 export const TopLeft: Story = {
   args: {
     status: 0,
-    preset: 'body-4 text-white',
+    preset: 'trg-14 text-white',
     color: 'dark',
     direction: 'TOP_LEFT',
   },
@@ -60,11 +60,11 @@ export const TopRight: Story = {
   },
 };
 
-export const BottomLeft30: Story = {
+export const BottomLeft20: Story = {
   args: {
     ...TopLeft.args,
     direction: 'BOTTOM_LEFT',
-    range: 30,
+    range: 20,
   },
 };
 
@@ -78,7 +78,7 @@ export const BottomRight: Story = {
 export const WhiteCenterRight: Story = {
   args: {
     ...TopLeft.args,
-    preset: 'body-4 text-gray-700',
+    preset: 'trg-14 text-gray-700',
     direction: 'CENTER_RIGHT',
     color: 'light',
   },
