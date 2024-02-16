@@ -1,17 +1,40 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>두꺼비 세상 Storybook</title>
+    <link rel="stylesheet" href="./src/index.css" />
+    <script type="module" src="/src/index.ts"></script>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>두꺼비 세상 Storybook</title>
-  <link rel="stylesheet" href="./src/index.css" />
-  <script type="module" src="/src/components/icon/icon.ts"></script>
-</head>
+    <div style="display: flex; width: 250px">
+      <dwc-select
+        label="선택"
+        placeholder="과일을 선택하세요"
+        options='[
+          {"label":"사과","value":"사과"},
+          {"label":"바나나","value":"바나나"},
+          {"label":"수박","value":"수박"},
+          {"label":"참외","value":"참외"}
+        ]'
+      ></dwc-select>
 
-<body>
-  <h1>Hello World!</h1>
-</body>
+      <dwc-select id="snack-select" label="선택" placeholder="과자를 선택하세요"></dwc-select>
+    </div>
 
+    <script>
+      const snacks = [
+        { label: '초코파이', value: '초코파이' },
+        { label: '칸쵸', value: '칸쵸' },
+        { label: '허니버터칩', value: '허니버터칩' },
+        { label: '포테이토칩', value: '포테이토칩' },
+      ];
+      const snackSelect = document.getElementById('snack-select');
+      snackSelect.options = snacks;
+    </script>
+  </body>
 </html>
