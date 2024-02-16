@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { TemplateResult, html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import styles from './select.scss?inline';
 import TailwindElement from '@/shared/tailwind.element';
@@ -20,24 +20,35 @@ export class Select extends TailwindElement(styles) {
   @property({ type: Array }) options: optionProps[] = [];
   @property({ type: Boolean }) isError: boolean = false;
 
-  @state() private _isOpenOption: Boolean = false;
-  @state() private _label: string = '';
-  @state() private _selectedIndex: number = 0;
-  @state() private _options: optionProps[] = [];
+  @state() protected _isOpenOption: Boolean = false;
+  @state() protected _label: string = '';
+  @state() protected _selectedIndex: number = 0;
+  @state() protected _options: optionProps[] = [];
+  @state() protected box?: HTMLElement | null;
+  @state() protected optionDom?: HTMLElement | null;
+  @state() protected boxBottom?: number;
+  @state() protected optionsHeight?: number;
 
   connectedCallback(): void {
     super.connectedCallback();
     document.addEventListener('click', this._handleOutsideClick);
     document.addEventListener('keydown', this._handleKeypress);
+    document.addEventListener('scroll', this._handleMenuOffset);
   }
 
   disconnectedCallback(): void {
     super.disconnectedCallback();
     document.removeEventListener('click', this._handleOutsideClick);
     document.removeEventListener('keydown', this._handleKeypress);
+    document.removeEventListener('scroll', this._handleMenuOffset);
   }
 
-  protected updated(changedProperties: Map<string, any>) {
+  firstUpdated(): void {
+    this.box = this.shadowRoot?.querySelector('.select') || null;
+    this.optionDom = this.shadowRoot?.querySelector('ul') || null;
+  }
+
+  protected updated(changedProperties: Map<string, any>): void {
     if (changedProperties.has('options')) {
       this._options = [{ value: '', label: this.placeholder }, ...this.options];
     }
@@ -45,15 +56,21 @@ export class Select extends TailwindElement(styles) {
       const label = this.options.find((option) => option.value === this.value)?.label || '';
       this._label = label;
     }
+    if (changedProperties.has('_isOpenOption')) {
+      this._handleMenuOffset();
+    }
   }
 
-  protected render() {
+  protected getSelectTextColorClass(): string {
     const emptyColor = this.value === '' && this.isError ? 'error' : 'not-selected';
     const colorClass = this.value !== '' ? 'selected' : emptyColor || '';
-    const selectClass = `select select--${this.type} ${colorClass} ${this._isOpenOption && 'open'} ${
-      this.disabled && 'disabled'
-    }`;
-    const selectValue = this._label !== '' ? this._label : this.placeholder;
+    return colorClass;
+  }
+
+  protected render(): TemplateResult {
+    const getClass = (isClass: Boolean, className: string) => (isClass ? className : '');
+    const selectClass = `${getClass(this._isOpenOption, 'open')} ${getClass(this.disabled, 'disabled')}`;
+    const iconClass = `${getClass(this.isError, 'error')} ${this.type} ${getClass(this._isOpenOption, 'reverse')}`;
 
     return html`
       <div
@@ -64,20 +81,17 @@ export class Select extends TailwindElement(styles) {
         @blur=${this._handleBlur}
         @mousedown=${this._handleMousedown}
       >
-        ${this.label && html`<p class="label ${this.isError && 'error'}">${this.label}</p>`}
-        <div class="${selectClass}">
-          <p class="selected-value">${selectValue}</p>
-          ${this.customOptions()}
-          <dwc-icon
-            name="ShevronDown"
-            class="icon ${this.isError && 'error'} ${this.type} ${this._isOpenOption && 'reverse'}"
-          />
+        ${this._selectLabel()}
+        <div class="select select--${this.type} ${this.getSelectTextColorClass()} ${selectClass}">
+          <p class="selected-value">${this._label !== '' ? this._label : this.placeholder}</p>
+          ${this._customOptions()}
+          <dwc-icon name="ShevronDown" class="icon ${iconClass}" />
         </div>
       </div>
     `;
   }
 
-  private customOptions = () => {
+  protected _customOptions = (): TemplateResult => {
     const isShow = this._isOpenOption ? 'show' : '';
     return html` <ul class="custom-options ${isShow}" role="listbox">
       ${this._options?.map(
@@ -97,24 +111,28 @@ export class Select extends TailwindElement(styles) {
     </ul>`;
   };
 
-  private _optionClass(idx: number, label: string) {
+  protected _selectLabel = () => {
+    return this.label && html`<p class="label ${this.isError ? 'error' : ''}">${this.label}</p>`;
+  };
+
+  protected _optionClass(idx: number, label: string): string {
     const sameIdx = this._selectedIndex === idx;
     const sameValue = this._label === label;
     return sameIdx || sameValue ? 'selected' : '';
   }
 
-  private _handleClick() {
+  protected _handleClick(): void {
     if (this.disabled) return;
     this._isOpenOption = !this._isOpenOption;
   }
 
-  private _handleOutsideClick = (event: MouseEvent) => {
-    if (this !== event.target) {
+  protected _handleOutsideClick = (event: MouseEvent): void => {
+    if (!this.contains(event.target as Node)) {
       this._isOpenOption = false;
     }
   };
 
-  private _handleKeypress = (event: KeyboardEvent) => {
+  protected _handleKeypress = (event: KeyboardEvent): void => {
     switch (event.key) {
       case 'ArrowDown':
         this._handleArrowDown();
@@ -132,7 +150,7 @@ export class Select extends TailwindElement(styles) {
     event.stopPropagation();
   };
 
-  private _handleArrowDown() {
+  protected _handleArrowDown(): void {
     if (this.disabled) return;
     const focused = document.activeElement === this;
     if (focused && !this._isOpenOption) {
@@ -145,14 +163,14 @@ export class Select extends TailwindElement(styles) {
     }
   }
 
-  private _handleArrowUp() {
+  protected _handleArrowUp(): void {
     if (this._isOpenOption && this._selectedIndex > 0) {
       this._selectedIndex -= 1;
       this._scrollIntoOption(this._selectedIndex);
     }
   }
 
-  private _handleSelect(selectIndex: number, isEnter: boolean = false) {
+  protected _handleSelect(selectIndex: number, isEnter: boolean = false): void {
     const { value, label } = this._options[selectIndex];
     this.value = value ? value : '';
     this._label = value ? label : '';
@@ -166,35 +184,52 @@ export class Select extends TailwindElement(styles) {
     this._handleClearError(value);
   }
 
-  private _scrollIntoOption(index: number) {
+  protected _scrollIntoOption(index: number): void {
     const element = this.shadowRoot?.querySelector('ul')?.children[index];
     element?.scrollIntoView({ block: 'center' });
   }
 
-  private _handleMouseOver(event: MouseEvent) {
+  protected _handleMouseOver(event: MouseEvent): void {
     event.preventDefault();
     event.stopPropagation();
     this._selectedIndex = Number((event.target as HTMLSelectElement).dataset.index);
   }
 
-  private _handleFocus() {
+  protected _handleFocus(): void {
     if (this.disabled) return;
     this._isOpenOption = true;
   }
 
-  private _handleBlur() {
+  protected _handleBlur(): void {
     this._isOpenOption = false;
   }
 
-  private _handleMousedown(event: MouseEvent) {
+  protected _handleMousedown(event: MouseEvent): void {
     event.preventDefault();
   }
 
-  private _handleClearError(value: string) {
+  protected _handleClearError(value: string): void {
     if (value !== '') {
       this.isError = false;
     }
   }
+
+  protected _calculateMenuOffsetTop(bottom: number, height: number): string {
+    const optionBottom = window.innerHeight - (bottom + height);
+    return this._isOpenOption && optionBottom < 10 ? `${-height}px` : '100%';
+  }
+
+  protected _calculateAndApplyOffset(): void {
+    requestAnimationFrame(() => {
+      if (!this._isOpenOption) return;
+      if (!this.optionDom || !this.box) return;
+      this.optionsHeight = this.optionDom.getBoundingClientRect().height;
+      this.boxBottom = this.box.getBoundingClientRect().bottom;
+      this.optionDom.style.top = this._calculateMenuOffsetTop(this.boxBottom, this.optionsHeight);
+    });
+  }
+
+  protected _handleMenuOffset = (): void => this._calculateAndApplyOffset();
 }
 
 declare global {

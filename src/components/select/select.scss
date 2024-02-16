@@ -3,6 +3,12 @@ $red: theme('colors.red.600');
 $black: theme('colors.black');
 $primary: theme('colors.brand.primary');
 
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .select-wrap {
   width: 100%;
   min-width: 220px;
@@ -45,17 +51,13 @@ $primary: theme('colors.brand.primary');
     position: relative;
 
     .selected-value {
+      @include text-ellipsis;
       max-width: calc(100% - 24px);
-      vertical-align: middle;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
       font-size: 16px;
       font-style: normal;
       font-weight: 500;
       line-height: 24px;
       letter-spacing: -0.3px;
-      height: 19px;
     }
 
     &--basic {
@@ -99,9 +101,7 @@ $primary: theme('colors.brand.primary');
         color: $black;
         width: 100%;
         font-size: 14px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        @include text-ellipsis;
       }
 
       &:hover {

@@ -19,7 +19,7 @@ const Template = (args: Select) => html`
   </div>
 `;
 
-const selectOptions = [
+const options = [
   { value: 'gmail.com', label: 'Google' },
   { value: 'naver.com', label: 'Naver' },
   { value: 'daum.net', label: 'Daum' },
@@ -55,23 +55,40 @@ export const Default: Story = {
   args: {
     label: 'Label',
     placeholder: '선택',
-    options: selectOptions,
+    options: options,
   },
 };
 
 export const SelectType = {
   render: () =>
-    html`<div style="display:flex; height:320px">
-      <div style="width:260px">
-        <dwc-select label="Label" placeholder="선택" .options=${selectOptions}></dwc-select>
+    html`<div style="display:flex; height:320px; flex-direction:column;">
+      <div style="display:flex ;align-items:center;justify-content:space-between">
+        <div>
+          <dwc-select label="Label" placeholder="선택" .options=${options} />
+        </div>
+        <div>
+          <dwc-select label="Label" placeholder="선택" .options=${options} isError />
+        </div>
+        <div>
+          <dwc-select label="Label" placeholder="선택" .options=${options} disabled />
+        </div>
+        <div>
+          <dwc-select placeholder="선택" .options=${options} />
+        </div>
       </div>
-      <div style="margin-left:20px; width:260px">
-        <dwc-select
-          type="underline"
-          label="Label"
-          placeholder="항목을 선택해주세요"
-          .options=${selectOptions}
-        ></dwc-select>
+      <div style="display:flex; margin-top:20px; align-items:center;justify-content:space-between">
+        <div>
+          <dwc-select type="underline" label="Label" placeholder="선택" .options=${options} />
+        </div>
+        <div>
+          <dwc-select type="underline" label="Label" placeholder="선택" .options=${options} isError />
+        </div>
+        <div>
+          <dwc-select type="underline" label="Label" placeholder="선택" .options=${options} disabled />
+        </div>
+        <div>
+          <dwc-select type="underline" placeholder="선택" .options=${options} />
+        </div>
       </div>
     </div>`,
 };
