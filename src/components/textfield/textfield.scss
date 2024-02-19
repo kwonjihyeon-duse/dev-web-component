@@ -1,0 +1,127 @@
+.textfield-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  &-md {
+    min-width: 220px;
+    max-width: 248px;
+    .textfield-input-box {
+      input,
+      div {
+        @apply tmd-16;
+      }
+    }
+  }
+
+  &-lg {
+    width: 100%;
+    .textfield-input-box {
+      div,
+      input {
+        @apply tmd-20;
+      }
+    }
+  }
+}
+
+.textfield {
+  &-input-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+    column-gap: 8px;
+    width: 100%;
+  }
+
+  &-input {
+    width: calc(100% - 85px);
+    ::placeholder {
+      color: theme('colors.basic.on-surface-5');
+    }
+    &:disabled {
+      background-color: inherit;
+    }
+  }
+
+  &-label {
+    color: theme('colors.basic.on-surface-1');
+    &__success {
+      color: theme('colors.state.success');
+    }
+    &__error {
+      color: theme('colors.state.error');
+    }
+  }
+
+  &-helper {
+    color: theme('colors.basic.on-surface-3');
+    &__error {
+      color: theme('colors.state.error');
+    }
+  }
+}
+
+.suffix-wrapper {
+  max-width: 85px;
+  column-gap: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.suffix {
+  width: 55px;
+  text-align: right;
+}
+
+.suffix-icon {
+  border: none;
+  background: inherit;
+}
+
+@mixin boxed($color, $boxed: false) {
+  @if $boxed {
+    border: 1px solid theme($color);
+    @apply rounded-mo-1 py-dwc-5 px-dwc-7;
+  } @else {
+    border-bottom: 2px solid theme($color);
+    @apply py-dwc-4;
+  }
+}
+
+.enabled,
+.complete {
+  @include boxed('colors.basic.border-3');
+
+  &__boxed {
+    @include boxed('colors.basic.border-3', true);
+  }
+}
+
+.success {
+  @include boxed('colors.state.success');
+
+  &__boxed {
+    @include boxed('colors.state.success', true);
+  }
+}
+
+.error {
+  @include boxed('colors.state.error');
+
+  &__boxed {
+    @include boxed('colors.state.error', true);
+  }
+}
+
+.disabled {
+  input {
+    color: theme('colors.basic.on-surface-3');
+  }
+
+  &-boxed {
+    @extend .disabled;
+    background-color: theme('colors.basic.surface-2');
+    @include boxed('colors.basic.border-2', true);
+  }
+}

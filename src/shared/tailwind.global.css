@@ -4,7 +4,8 @@
 
 @font-face {
   font-family: 'SpoqaHanSansNeo';
-  src: url('../../public/assets/fonts/SpoqaHanSansNeo-Bold.woff') format('woff2'),
+  src:
+    url('../../public/assets/fonts/SpoqaHanSansNeo-Bold.woff') format('woff2'),
     url('../../public/assets/fonts/SpoqaHanSansNeo-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
@@ -12,7 +13,8 @@
 
 @font-face {
   font-family: 'SpoqaHanSansNeo';
-  src: url('../../public/assets/fonts/SpoqaHanSansNeo-Medium.woff2') format('woff2'),
+  src:
+    url('../../public/assets/fonts/SpoqaHanSansNeo-Medium.woff2') format('woff2'),
     url('../../public/assets/fonts/SpoqaHanSansNeo-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
@@ -20,7 +22,8 @@
 
 @font-face {
   font-family: 'SpoqaHanSansNeo';
-  src: url('../../public/assets/fonts/SpoqaHanSansNeo-Regular.woff2') format('woff2'),
+  src:
+    url('../../public/assets/fonts/SpoqaHanSansNeo-Regular.woff2') format('woff2'),
     url('../../public/assets/fonts/SpoqaHanSansNeo-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
@@ -105,6 +108,13 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+input:focus-visible,
+button:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
 }
 
 /* Make sure textareas without a rows attribute are not tiny */
