@@ -1,0 +1,103 @@
+$primary: theme('colors.brand.primary');
+
+@mixin checkbox-state($left, $top, $size) {
+  content: '';
+  position: absolute;
+  left: $left;
+  top: $top;
+  width: $size;
+  height: $size;
+  border-radius: 4px;
+}
+
+@mixin default-text {
+  font-style: normal;
+  letter-spacing: -0.3px;
+  font-weight: 400;
+}
+
+@mixin text-sm {
+  @include default-text;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+@mixin text-md {
+  @include default-text;
+  font-size: 18px;
+  line-height: 27px; /* 150% */
+}
+
+.checkbox-wrap {
+  display: flex;
+  align-items: center;
+  height: 22px;
+  position: relative;
+
+  .checkbox {
+    cursor: pointer;
+  }
+
+  .custom-checkbox {
+    cursor: pointer;
+    padding-left: 27px;
+    &.default {
+      cursor: default;
+    }
+
+    &.label--sm {
+      @include text-sm;
+    }
+
+    &.label--md {
+      @include text-md;
+    }
+
+    &::before {
+      @include checkbox-state(0px, 1px, 20px);
+      border: 1px solid theme('colors.gray.200');
+      border-radius: 4px;
+    }
+
+    &::after {
+      @include checkbox-state(0px, 1px, 20px);
+      display: none;
+      background: url('../icon/svgs/check-white.svg') no-repeat center;
+    }
+  }
+
+  input[type='checkbox']:checked + .custom-checkbox::before {
+    display: block;
+    background: $primary;
+    border: 1px solid $primary;
+  }
+
+  input[type='checkbox']:checked + .custom-checkbox::after {
+    display: block;
+  }
+
+  input[type='checkbox']:disabled {
+    cursor: default;
+  }
+
+  input[type='checkbox']:disabled + .custom-checkbox::before {
+    background: #f9f9f9;
+    cursor: default;
+  }
+
+  input[type='checkbox']:disabled + .custom-checkbox::after {
+    cursor: default;
+  }
+
+  input[type='checkbox']:checked:disabled + .custom-checkbox::before {
+    border: 1px solid theme('colors.gray.200');
+    background: #f9f9f9;
+    cursor: default;
+  }
+
+  input[type='checkbox']:checked:disabled + .custom-checkbox::after {
+    display: block;
+    background: url('../icon/svgs/check-gray.svg') no-repeat center;
+    cursor: default;
+  }
+}
