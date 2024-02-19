@@ -30,7 +30,7 @@ export const themeColors = {
     900: '#101214',
   },
   gray: {
-    50: '#F4F4F5',
+    50: '#F9F9F9',
     100: '#E7E7E9',
     200: '#DADADC',
     300: '#CACACD',
@@ -74,7 +74,7 @@ export const colorTheme = {
   },
   basic: {
     'surface-1': themeColors.white,
-    'surface-2': themeColors.gray[100],
+    'surface-2': themeColors.gray[50],
     'surface-3': themeColors.gray[800],
     'surface-4': themeColors.bluegray[50],
     'surface-dim-thick': 'rgba(0, 0, 0, 0.75)',
