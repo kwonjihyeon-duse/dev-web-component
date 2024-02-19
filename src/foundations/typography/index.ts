@@ -18,14 +18,14 @@ const fontSizes: IndexNumberObject = {
 };
 
 const fontLineHeights: IndexNumberObject = {
-  12: '23px',
-  14: '26px',
-  16: '30px',
-  18: '34px',
-  20: '38px',
-  22: '41px',
-  24: '45px',
-  40: '87px',
+  12: '18px',
+  14: '21px',
+  16: '24px',
+  18: '27px',
+  20: '30px',
+  22: '33px',
+  24: '36px',
+  40: '60px',
 };
 
 const fontWeights: IndexStringObject = {
