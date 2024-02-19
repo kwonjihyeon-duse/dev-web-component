@@ -14,7 +14,7 @@ const Template = (args: Select) => html`
       ?disabled=${args.disabled}
       .options=${args.options}
       ?isError=${args.isError}
-      @onChange=${args.onChange}
+      .onChange=${args.onChange}
     />
   </div>
 `;
@@ -37,13 +37,13 @@ const meta = {
   tags: ['autodocs'],
   render: Template,
   argTypes: {
-    onChange: { action: 'onChange' },
-    disabled: { control: 'boolean' },
-    isError: { control: 'boolean' },
     type: {
       control: { type: 'select' },
       options: ['basic', 'underline'],
+      default: 'basic',
     },
+    disabled: { control: 'boolean' },
+    isError: { control: 'boolean' },
   },
   component: 'dwc-button',
 } satisfies Meta<Select>;
@@ -56,6 +56,7 @@ export const Default: Story = {
     label: 'Label',
     placeholder: '선택',
     options: options,
+    onChange: (value: String) => {},
   },
 };
 

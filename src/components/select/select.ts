@@ -31,21 +31,29 @@ export class Select extends TailwindElement(styles) {
 
   connectedCallback(): void {
     super.connectedCallback();
-    document.addEventListener('click', this._handleOutsideClick);
-    document.addEventListener('keydown', this._handleKeypress);
-    document.addEventListener('scroll', this._handleMenuOffset);
+    this._connectedCallback();
   }
 
   disconnectedCallback(): void {
     super.disconnectedCallback();
-    document.removeEventListener('click', this._handleOutsideClick);
-    document.removeEventListener('keydown', this._handleKeypress);
-    document.removeEventListener('scroll', this._handleMenuOffset);
+    this._disconnectedCallback();
   }
 
   firstUpdated(): void {
     this.box = this.shadowRoot?.querySelector('.select') || null;
     this.optionDom = this.shadowRoot?.querySelector('ul') || null;
+  }
+
+  private _connectedCallback(): void {
+    document.addEventListener('click', this._handleOutsideClick);
+    document.addEventListener('keydown', this._handleKeypress);
+    document.addEventListener('scroll', this._handleMenuOffset);
+  }
+
+  private _disconnectedCallback(): void {
+    document.removeEventListener('click', this._handleOutsideClick);
+    document.removeEventListener('keydown', this._handleKeypress);
+    document.removeEventListener('scroll', this._handleMenuOffset);
   }
 
   protected updated(changedProperties: Map<string, any>): void {
