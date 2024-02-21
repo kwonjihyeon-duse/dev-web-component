@@ -30,7 +30,6 @@ const tailwindElement = unsafeCSS(globalcss);
  */
 @customElement('dwc-textfield')
 export class Textfield extends Icon {
-  @property() preset?: IState = 'enabled';
   @property() placeholder?: string;
   @property() fieldSize?: ISize = 'lg';
   @property() value?: string = '';
@@ -41,15 +40,21 @@ export class Textfield extends Icon {
   @property() suffix?: string;
   @property() iconColor?: string;
   @property() disabled?: boolean = false;
+  @property() isError?: boolean;
 
-  @property() clickFunc?: (e: Event) => void = () => {
-    this.value = '';
-  };
+  @state() _boxed = '';
+  @state() _preset?: IState = 'enabled';
+
+  @property() clickFunc?: (e: Event) => void = () => {};
+
   @property() changeFunc: (e: Event) => void = (e) => {
+    this._preset = this.isError ? 'error' : 'success';
     this.value = (e.target as HTMLInputElement).value;
   };
 
-  @state() _boxed = '';
+  private _delete: (e: Event) => void = () => {
+    this.value = '';
+  };
 
   render() {
     const size = this.fieldSize ? `-${this.fieldSize}` : '';
@@ -67,26 +72,24 @@ export class Textfield extends Icon {
     }
 
     const label = this.label
-      ? html`<span class="trg-14 textfield-label textfield-label__${this.preset}">${this.label}</span>`
+      ? html`<span class="trg-14 textfield-label textfield-label__${this._preset}">${this.label}</span>`
       : nothing;
 
     const helper = this.helperText
-      ? html`<span class="trg-12 textfield-helper textfield-helper__${this.preset}">${this.helperText}</span>`
+      ? html`<span class="trg-12 textfield-helper textfield-helper__${this._preset}">${this.helperText}</span>`
       : nothing;
 
-    const suffix = this.suffix ? html`<span class="suffix">${this.suffix}</span>` : nothing;
-
-    const icons = this.name
+    const suffix = this.name
       ? html`<button class="suffix-icon ${this.iconColor}" @click=${ifDefined(this.clickFunc)}>
           <dwc-icon size="s" name="${this.name}"></dwc-icon>
         </button>`
-      : nothing;
+      : html`<span class="suffix">${this.suffix}</span>`;
 
     return html`
       <div class="textfield-wrapper${size}">
         ${label}
         <div
-          class="textfield-input-box ${this.preset}${this._boxed} ${this._boxed ? 'mt-2.5 mb-dwc-2' : 'mb-dwc-1'}
+          class="textfield-input-box ${this._preset}${this._boxed} ${this._boxed ? 'mt-2.5 mb-dwc-2' : 'mb-dwc-1'}
           ${this._boxed && this.disabled ? 'disabled-boxed' : this.disabled ? 'disabled' : ''}"
         >
           <input
@@ -96,7 +99,13 @@ export class Textfield extends Icon {
             @change=${this.changeFunc}
             .value="${this.value}"
           />
-          <div class="suffix-wrapper">${suffix}${icons}</div>
+          <div class="suffix-wrapper">
+            ${suffix}
+            ${this.value &&
+            html`<button class="suffix-icon text-gray-300" @click=${this._delete}>
+              <dwc-icon size="s" name="XmarkCircleFill"></dwc-icon>
+            </button>`}
+          </div>
         </div>
         ${helper}
       </div>

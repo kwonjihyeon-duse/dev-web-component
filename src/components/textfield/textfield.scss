@@ -32,6 +32,9 @@
     justify-content: space-between;
     column-gap: 8px;
     width: 100%;
+    &:focus-within {
+      @extend .success;
+    }
   }
 
   &-input {

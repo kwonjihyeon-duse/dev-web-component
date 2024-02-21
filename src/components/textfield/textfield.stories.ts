@@ -24,6 +24,9 @@ const meta = {
     disabled: {
       control: { type: 'boolean' },
     },
+    isError: {
+      control: { type: 'boolean' },
+    },
     label: {
       control: { type: 'text' },
       description: 'label 값 없을 경우 비노출',
@@ -54,7 +57,7 @@ export const Enabled: Story = {
     label: 'Label',
     helperText: 'Helper text',
     suffix: 'suffix',
-    name: 'XmarkCircleFill',
+    name: 'Calender_02',
     iconColor: 'text-gray-300',
   },
 };
@@ -70,7 +73,6 @@ export const EnabledBoxed: Story = {
 export const Success: Story = {
   args: {
     ...Enabled.args,
-    preset: 'success',
     value: 'typing',
   },
 };
@@ -87,7 +89,6 @@ export const SuccessBoxed: Story = {
 export const Error: Story = {
   args: {
     ...Enabled.args,
-    preset: 'error',
     value: 'typing',
   },
 };
@@ -103,21 +104,20 @@ export const ErrorBoxed: Story = {
 export const Complete: Story = {
   args: {
     ...Enabled.args,
-    preset: 'complete',
     value: 'complete',
     name: undefined,
   },
 };
 
-export const CompleteBoxed: Story = {
-  args: {
-    ...Enabled.args,
-    preset: 'complete',
-    value: 'complete',
-    name: undefined,
-    isBoxed: true,
-  },
-};
+// export const CompleteBoxed: Story = {
+//   args: {
+//     ...Enabled.args,
+//     preset: 'complete',
+//     value: 'complete',
+//     name: undefined,
+//     isBoxed: true,
+//   },
+// };
 
 export const Disabled: Story = {
   args: {
