@@ -11,9 +11,23 @@ const meta = {
   component: 'dwc-textfield',
   decorators: [(Story) => html`<div class="flex justify-center items-center min-h-28">${Story()}</div>`],
   args: {
-    value: '',
+    clickFunc: () => {
+      alert('아이콘 클릭 동작 예시');
+    },
+    changeFunc: (e) => {
+      const field = document.querySelector('dwc-textfield');
+      if (field === null) return;
+
+      field.isError = (e.target as HTMLInputElement).value.length > 5;
+    },
   },
   argTypes: {
+    clickFunc: {
+      description: '아이콘 클릭시 알럿창 노출',
+    },
+    changeFunc: {
+      description: '5자 이상 검색시 error 표출',
+    },
     fieldSize: {
       control: { type: 'inline-radio' },
       options: ['md', 'lg'],
@@ -22,9 +36,6 @@ const meta = {
       control: { type: 'boolean' },
     },
     disabled: {
-      control: { type: 'boolean' },
-    },
-    isError: {
       control: { type: 'boolean' },
     },
     label: {
@@ -73,14 +84,12 @@ export const EnabledBoxed: Story = {
 export const Success: Story = {
   args: {
     ...Enabled.args,
-    value: 'typing',
   },
 };
 
 export const SuccessBoxed: Story = {
   args: {
     ...Success.args,
-    value: 'typing',
     name: undefined,
     isBoxed: true,
   },
@@ -89,7 +98,6 @@ export const SuccessBoxed: Story = {
 export const Error: Story = {
   args: {
     ...Enabled.args,
-    value: 'typing',
   },
 };
 
@@ -97,14 +105,12 @@ export const ErrorBoxed: Story = {
   args: {
     ...Error.args,
     isBoxed: true,
-    value: 'typing',
   },
 };
 
 export const Complete: Story = {
   args: {
     ...Enabled.args,
-    value: 'complete',
     name: undefined,
   },
 };
@@ -122,7 +128,6 @@ export const Complete: Story = {
 export const Disabled: Story = {
   args: {
     ...Enabled.args,
-    value: 'disabled',
     name: undefined,
     disabled: true,
   },
@@ -131,7 +136,6 @@ export const Disabled: Story = {
 export const DisabledBoxed: Story = {
   args: {
     ...Disabled.args,
-    value: '',
     isBoxed: true,
   },
 };

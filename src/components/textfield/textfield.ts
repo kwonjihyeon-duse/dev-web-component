@@ -16,10 +16,8 @@ const tailwindElement = unsafeCSS(globalcss);
 /**
  * Textfield element.
  *
- * @preset 필드 전체 style class
  * @placeholder 필드 placeholder
  * @fieldSize 필드 size (md | lg)
- * @value 필드 value
  * @isBoxed 필드 border 여부
  * @label 필드 라벨
  * @helperText 필드 helper-text
@@ -32,7 +30,6 @@ const tailwindElement = unsafeCSS(globalcss);
 export class Textfield extends Icon {
   @property() placeholder?: string;
   @property() fieldSize?: ISize = 'lg';
-  @property() value?: string = '';
 
   @property() isBoxed?: boolean;
   @property() label?: string;
@@ -40,21 +37,56 @@ export class Textfield extends Icon {
   @property() suffix?: string;
   @property() iconColor?: string;
   @property() disabled?: boolean = false;
-  @property() isError?: boolean;
+  @property() isError?: boolean = false;
 
+  @state() _value?: string;
   @state() _boxed = '';
-  @state() _preset?: IState = 'enabled';
+  @state() _preset: IState = this.isError ? 'error' : 'enabled';
 
   @property() clickFunc?: (e: Event) => void = () => {};
-
   @property() changeFunc: (e: Event) => void = (e) => {
-    this._preset = this.isError ? 'error' : 'success';
-    this.value = (e.target as HTMLInputElement).value;
+    this._value = (e.target as HTMLInputElement).value;
   };
 
-  private _delete: (e: Event) => void = () => {
-    this.value = '';
+  private _delete() {
+    this._value = '';
+    this.isError = false;
+  }
+
+  private _focus = () => {
+    // this.dispatchEvent(changeFunc);
+    if (this.isError) return;
+    if (this._preset !== 'success') this._preset = 'success';
   };
+
+  private _blur = () => {
+    if (this.isError) return;
+    if (this._preset !== 'complete') this._preset = 'complete';
+  };
+
+  // update(changed: Map<string, any>) {
+  //   super.update(changed);
+  //   if (changed.has('disabled')) {
+  //     //   // change event
+  //     //   if (this.isError) {
+  //     //     this._preset = 'error';
+  //     //   } else if (this._preset !== 'success') {
+  //     //     this._preset = 'success';
+  //     //   }
+  //   }
+  //   // return true;
+  // }
+
+  private _changeEvent(e: Event) {
+    this.changeFunc(e);
+    this._value = (e.target as HTMLInputElement).value;
+
+    if (this.isError) {
+      this._preset = 'error';
+    } else if (this._preset !== 'success') {
+      this._preset = 'success';
+    }
+  }
 
   render() {
     const size = this.fieldSize ? `-${this.fieldSize}` : '';
@@ -85,23 +117,26 @@ export class Textfield extends Icon {
         </button>`
       : html`<span class="suffix">${this.suffix}</span>`;
 
+    console.log(this.disabled, this._value);
     return html`
       <div class="textfield-wrapper${size}">
         ${label}
         <div
           class="textfield-input-box ${this._preset}${this._boxed} ${this._boxed ? 'mt-2.5 mb-dwc-2' : 'mb-dwc-1'}
-          ${this._boxed && this.disabled ? 'disabled-boxed' : this.disabled ? 'disabled' : ''}"
+          ${this._boxed && this.disabled ? 'disabled__boxed' : this.disabled ? 'disabled' : ''}"
         >
           <input
             class="textfield-input"
             placeholder="${ifDefined(this.placeholder)}"
-            ?disabled="${this.disabled}"
-            @change=${this.changeFunc}
-            .value="${this.value}"
+            ?disabled=${this.disabled}
+            @input=${this._changeEvent}
+            @focus=${this._focus}
+            @blur=${this._blur}
+            .value="${ifDefined(this._value)}"
           />
           <div class="suffix-wrapper">
             ${suffix}
-            ${this.value &&
+            ${this._value &&
             html`<button class="suffix-icon text-gray-300" @click=${this._delete}>
               <dwc-icon size="s" name="XmarkCircleFill"></dwc-icon>
             </button>`}
